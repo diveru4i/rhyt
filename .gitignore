@@ -1,0 +1,20 @@
+# Folders
+.idea
+.DS_Store
+log/*
+run/*
+tmp/*
+
+
+# Patterns
+*.swp
+*.csv
+*.sql
+*.pyc
+*.log
+*.svn
+*.pid
+*.db
+*.sublime-project
+*.tar
+*.gz

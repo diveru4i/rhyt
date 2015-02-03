@@ -1,0 +1,26 @@
+{
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "es3": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true,
+    "nonew": true,
+    "onevar": true,
+    "quotmark": "single",
+    "unused": false,
+    "undef": true,
+    "smarttabs": true,
+    "trailing": true,
+    "expr": true,
+
+    "laxbreak": true,
+    "maxerr": 100,
+    "sub": true,
+    "browser": true,
+    "devel": true,
+    "jquery": true
+}
