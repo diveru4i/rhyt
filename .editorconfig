@@ -17,7 +17,7 @@ continuation_indent_size = 4
 spaces_around_operators = true
 
 [*.css]
-indent_size = 2
+indent_size = 4
 quote_type = double
 
 [*.scss]
