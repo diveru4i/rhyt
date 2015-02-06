@@ -86,15 +86,22 @@
 
 .container {
     position: relative;
+    font: 14px/16px Helvetica, Arial, Tahoma, sans-serif;
+    color: #000;
     z-index: 1;
 }
 
 .main {
-    margin-left: 300px;
-    outline: 1px solid red;
+    margin-left: 260px;
     height: 400px;
 }
 
+.main p {
+    margin: 0;
+    padding: 0 0 20px 0;
+    font: italic 24px/26px "Athelas", serif;
+    color: #7f7c7c;
+}
 .main img {
     max-width: 100%;
     height: auto;
@@ -102,7 +109,70 @@
 
 .left-menu {
     float: left;
-    width: 300px;
-    height: 400px;
-    outline: 1px solid green;
+    width: 260px;
+    padding: 140px 0 0 0;
+}
+
+.left-menu-list {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.left-menu-item {
+    display: block;
+    padding: 10px 10px 10px 30px;
+}
+
+.left-menu-link {
+    color: #000;
+    text-decoration: none;
+}
+.left-menu-link:hover,
+.left-menu-link:focus {
+    border-bottom: 1px solid;
+}
+
+.gallery {
+    padding: 0 20px 0 20px;
+}
+
+.gallery img {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.gallery-link {
+    position: relative;
+    display: block;
+    font: bold 36px/40px Helvetica, Arial, Tahoma, sans-serif;
+    color: #000;
+    text-decoration: none;
+}
+
+.gallery-link:hover .gallery-link-name,
+.gallery-link:focus .gallery-link-name {
+    color: #fff;
+}
+
+.gallery-link-name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+img.float-left {
+    margin: 0 30px 10px 10px;
+}
+img.float-right {
+    margin: 0 10px 10px 30px;
 }
