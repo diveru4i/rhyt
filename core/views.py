@@ -27,6 +27,20 @@ class IndexView(ListView):
             context['object'] = context['object_list'].get(slug=gallery_slug)
         except self.model.DoesNotExist:
             context['object'] = context['object_list'].first()
+        return context
+
+
+class PortfolioView(ListView):
+    template_name = 'portfolio.html'
+    model = Gallery
+
+    def get_context_data(self, **kwargs):
+        context = super(PortfolioView, self).get_context_data(**kwargs)
+        gallery_slug = self.request.GET.get('g')
+        try:
+            context['object'] = context['object_list'].get(slug=gallery_slug)
+        except self.model.DoesNotExist:
+            context['object'] = context['object_list'].first()
         context['page'] = Page.objects.first()
         return context
 

@@ -26,7 +26,7 @@ class Gallery(OrderedModel):
     slug = models.SlugField(u'Слаг', unique=True)
 
     def get_absolute_url(self):
-        return u'{0}?g={1}'.format(reverse('index'), self.slug)
+        return u'{0}?g={1}'.format(reverse('portfolio'), self.slug)
 
     def __unicode__(self):
         return self.name
