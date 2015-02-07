@@ -1,0 +1,8 @@
+{% load thumbnail %}
+
+<meta name="title" content="{{ object.name }}">
+<meta name="description" content="{{ page.description|default:'' }}">
+<meta name="keywords" content="{{ page.keywords|default:'' }}">
+
+<meta property="og:image" content="{{ page.banner|thumbnail_url:'meta_page_banner' }}">
+<link rel="image_src" href="{{ page.banner|thumbnail_url:'meta_page_banner' }}">

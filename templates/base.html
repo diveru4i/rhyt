@@ -1,0 +1,39 @@
+{% load staticfiles %}<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>{% block title %}Пирогова Олеся &mdash; семейный фотограф {% endblock title %}</title>
+    {% include "blocks/meta.html" %}
+    <link rel="stylesheet" href="{% static "core/css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "core/css/main.css" %}">
+    <link rel="stylesheet" href="{% static "core/css/master.css" %}">
+    <script src="{% static "vendor/jquery.min.js" %}"></script>
+</head>
+<!--[if lt IE 8]>
+<body class="lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<body class="lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<body>
+<!--<![endif]-->
+<header class="header row clearfix">
+    <a class="logo-link" href="{% url 'index' %}" title="На главную">Пирогова Олеся &mdash;
+        семейный фотограф</a>
+        {% include "blocks/menu.html" %}
+</header>
+<div class="container row clearfix">
+    {% if user.is_authenticated %}
+        <a class="to-admin" href="/admin/" target="_blank">Админка</a>
+    {% endif %}
+    {% block aside %}{% endblock aside %}
+
+    {% block content %}{% endblock content %}
+
+</div>
+<footer class="footer row">
+</footer>
+<script src="{% static "core/js/main.js" %}"></script>
+</body>
+</html>

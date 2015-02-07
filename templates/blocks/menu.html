@@ -1,0 +1,12 @@
+{% load core_tags %}
+
+<nav class="main-menu clearfix" role="navigation">
+    <ul class="menu-list clearfix">
+        {% get_menu_items as menu_items %}
+        {% for menu_item in menu_items %}
+            <li class="menu-item">
+                <a class="menu-link {% if page.slug == menu_item.slug %}active{% endif %}" href="{{ menu_item.get_absolute_url }}">{{ menu_item.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

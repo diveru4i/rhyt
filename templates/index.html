@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block aside %}
+    <aside class="left-menu">
+        <ul class="left-menu-list">
+            {% for gal in object_list %}
+                <li class="left-menu-item {% if gal.slug == object.slug %}active{% endif %}">
+                    <a class="left-menu-link" href="{{ gal.get_absolute_url }}">{{ gal.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </aside>
+{% endblock aside %}
+
+{% block content %}
+    <main class="main" role="main">
+        <div class="gallery">
+{% comment %}
+                <a class="gallery-link" href="#">
+                <span class="gallery-link-name">Главное фото серии. По клику на название серии попадаешь в галерею данной серии, где так же списком идут фотографии</span>
+                <img src="markup-images/photo-1.jpg" width="921" height="614" alt="" />
+            </a>
+
+            <h2><i>Название серии</i></h2>
+{% endcomment %}
+            {% for image in object.images.all %}
+                <img src="{{ image.img|thumbnail_url:'gallery_image' }}" width="921" height="614" alt="" />
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}

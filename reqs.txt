@@ -1,0 +1,11 @@
+Django==1.7.2
+MySQL-python==1.2.5
+ipython==2.2.0
+-e git+https://github.com/stefanfoulis/django-filer.git@62b2da0158ae046ac22930403d81947d16ea9dc6#egg=django_filer
+django-suit==0.2.11
+django-endless-pagination==2.0
+gunicorn==19.1.1
+django-tinymce==1.5.3
+python-memcached==1.53
+django-simple-captcha==0.4.2
+-e git+https://github.com/diveru4i/django-draggable_sorting.git#egg=draggable_sorting

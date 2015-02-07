@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}{{ page.name }}{% endblock title %}
+
+{% block content %}
+    <main class="main" role="main">
+        <img class="float-left" src="{{ page.banner|thumbnail_url:'side_page_banner' }}" alt="{{ page.name }}" />
+
+        {{ page.text|safe }}
+    </main>
+{% endblock content %}
