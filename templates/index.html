@@ -5,7 +5,7 @@
     <aside class="left-menu">
         <ul class="left-menu-list">
             {% for gal in object_list %}
-                <li class="left-menu-item">
+                <li class="left-menu-item {% if gal.slug == object.slug %}active{% endif %}">
                     <a class="left-menu-link" href="{{ gal.get_absolute_url }}">{{ gal.name }}</a>
                 </li>
             {% endfor %}
@@ -16,14 +16,20 @@
 {% block content %}
     <main class="main" role="main">
         <div class="gallery">
-
-            {% for gallery in object_list %}
-                <a class="gallery-link" href="{{ gallery.get_absolute_url }}" style="background:url({{ gallery.images.first.img|thumbnail_url:'gallery_image_sqr' }})">
-                    <div class="overlay">
-                        <span class="gallery-link-name">{{ gallery.name }}</span>
-                    </div>
-                </a>
-            {% endfor %}
+            {% if object %}
+                {{ object.text|default:''|safe }}
+                {% for image in object.images.all %}
+                    <img src="{{ image.img|thumbnail_url:'gallery_image' }}" alt="{{ image.text|default:'' }}" />
+                {% endfor %}
+            {% else %}
+                {% for gallery in object_list %}
+                    <a class="gallery-link" href="{{ gallery.get_absolute_url }}" style="background:url({{ gallery.images.first.img|thumbnail_url:'gallery_image_sqr' }})">
+                        <div class="overlay">
+                            <span class="gallery-link-name">{{ gallery.name }}</span>
+                        </div>
+                    </a>
+                {% endfor %}
+            {% endif %}
         </div>
     </main>
 {% endblock content %}

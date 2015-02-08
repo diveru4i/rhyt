@@ -40,7 +40,7 @@ class GalleryAdmin(OpenMultiButtonMixin, SortableModelAdmin):
     inlines = [ImageInline]
     fieldsets = [
         (None, {
-            'fields': [('name', 'slug')],
+            'fields': [('name', 'slug'), 'text'],
             'classes': ['suit-tab', 'suit-tab-core']
         }),
     ]

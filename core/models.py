@@ -24,9 +24,10 @@ class OrderedModel(models.Model):
 class Gallery(OrderedModel):
     name = models.CharField(u'Название', max_length=255)
     slug = models.SlugField(u'Слаг', unique=True)
+    text = HTMLField(u'Описание', blank=True, null=True)
 
     def get_absolute_url(self):
-        return u'{0}?g={1}'.format(reverse('portfolio'), self.slug)
+        return u'{0}?g={1}'.format(reverse('index'), self.slug)
 
     def __unicode__(self):
         return self.name
