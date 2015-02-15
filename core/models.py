@@ -26,6 +26,10 @@ class Gallery(OrderedModel):
     slug = models.SlugField(u'Слаг', unique=True)
     text = HTMLField(u'Описание', blank=True, null=True)
 
+    def get_cover(self):
+        print self.images.filter(main=True).first()
+        return self.images.filter(main=True).first() or self.images.first()
+
     def get_absolute_url(self):
         return u'{0}?g={1}'.format(reverse('index'), self.slug)
 
@@ -41,7 +45,7 @@ class Gallery(OrderedModel):
 class Image(OrderedModel):
     gallery = models.ForeignKey(Gallery, related_name='images')
     img = FilerImageField(verbose_name=u'Изображение', blank=True, null=True, related_name=u'image_img')
-    text = models.TextField(u'Описание', blank=True)
+    main = models.BooleanField(u'Обложка галереи', default=False)
 
     def __unicode__(self):
         return u'{0}: {1}'.format(self.gallery.name, self.order)

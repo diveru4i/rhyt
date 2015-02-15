@@ -33,6 +33,11 @@ class ImageInline(DraggableMixin, SortableStackedInline):
     extra = 0
     form = ImageInlineForm
     suit_classes = 'suit-tab suit-tab-gallery'
+    fieldsets = [
+        (None, {
+            'fields': [('main', 'img')],
+        })
+    ]
 
 
 class GalleryAdmin(OpenMultiButtonMixin, SortableModelAdmin):

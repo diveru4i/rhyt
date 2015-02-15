@@ -42,18 +42,24 @@
     .gallery-link {
         display: inline-block;
         display: inline-block;
-        width: 400px;
-        height: 400px;
+        width: 250px;
+        height: 250px;
         border-radius: 100%;
         margin: 10px;
+        background-size: 250px 250px;
+        background-position: 50%;
+        transition: background-size .5s;
+        -moz-transition: background-size .5s;
+        -web-kit-transition: background-size .5s;
+        -o-transition: background-size .5s;
         .overlay {
-            background: rgba(233,75,84,0.5);
+            background: rgba(255,255,255,0.5);
             -webkit-transition: opacity .25s ease;
             -moz-transition: opacity .25s ease;
-            height: 396px;
+            height: 246px;
             border-radius: 100%;
             border: 2px solid transparent;
-            width: 396px;
+            width: 246px;
             text-align: center;
             display: table-cell;
             vertical-align: middle;
@@ -77,6 +83,7 @@
             .overlay{
                 opacity: 1;
             }
+            background-size: 300px 300px;
         }
     }
 

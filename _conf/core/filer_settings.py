@@ -8,7 +8,7 @@ THUMBNAIL_ALIASES = {
     '': {
         'admin': {'size': (100, 100), 'crop': True},
         'gallery_image': {'size': (900, 0), 'crop': True, 'upscale': True},
-        'gallery_image_sqr': {'size': (400, 400), 'crop': True, 'upscale': True},
+        'gallery_image_sqr': {'size': (300, 300), 'crop': True, 'upscale': True},
         'side_page_banner': {'size': (252, 0), 'crop': True, 'upscale': True},
         'meta_page_banner': {'size': (300, 300), 'crop': True, 'upscale': True},
     },
