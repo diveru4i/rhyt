@@ -2,8 +2,13 @@
 <html>
 <head lang="ru">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}Пирогова Олеся &mdash; семейный фотограф {% endblock title %}</title>
     {% include "blocks/meta.html" %}
+
+    <link href="/" hreflang="ru" rel="alternate" >
+    <link rel="shortcut icon" href="/static/core/img/favicon.ico" sizes="16x16 32x32 64x64 128x128">
+
     <link rel="stylesheet" href="{% static "core/css/normalize.css" %}">
     <link rel="stylesheet" href="{% static "core/css/main.css" %}">
     <link rel="stylesheet" href="{% static "core/css/master.css" %}">
