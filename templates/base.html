@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}Пирогова Олеся &mdash; семейный фотограф {% endblock title %}</title>
-    {% include "blocks/meta.html" %}
+    {% if object %}
+        {% include "blocks/meta.html" %}
+    {% else %}
+        {% with page as object %}
+            {% include "blocks/meta.html" %}
+        {% endwith %}
+    {% endif %}
 
     <link href="/" hreflang="ru" rel="alternate" >
     <link rel="shortcut icon" href="/static/core/img/favicon.ico" sizes="16x16 32x32 64x64 128x128">
