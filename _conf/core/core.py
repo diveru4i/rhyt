@@ -13,6 +13,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '.opirogova.ru',
+]
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 

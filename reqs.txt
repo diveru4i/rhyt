@@ -1,7 +1,7 @@
 Django==1.7.2
 MySQL-python==1.2.5
 ipython==2.2.0
--e git+https://github.com/stefanfoulis/django-filer.git@62b2da0158ae046ac22930403d81947d16ea9dc6#egg=django_filer
+django-filer==0.9.9
 django-suit==0.2.11
 django-endless-pagination==2.0
 gunicorn==19.1.1

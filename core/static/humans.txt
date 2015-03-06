@@ -1,8 +1,11 @@
 /* TEAM */
 Title: Олеся Пирогова
-Site: designdepot.ru
-Facebook: http://www.facebook.com/designdepot.ru
-Location: 127015, Москва, Большая Новодмитровская улица, дом 14, корпус 1, офис 222
+Site: opirogova.ru
+Facebook: https://www.facebook.com/olesya.pirogova.75
+Instagram: https://instagram.com/olesyapirogova/
+Vkontakte: https://vk.com/id164066986
+Skype: scobka_mnemonic
+E-mail: rhyt@list.ru
 Design: Олеся Пирогова
 Back-end Developer: Rabbit Silver
 Front-end Developer: Rabbit Silver, Dmitrievcev
@@ -11,6 +14,5 @@ Front-end Developer: Rabbit Silver, Dmitrievcev
 Standards: HTML5, CSS3, JavaScript (Strict mode)
 Engine: Python, Django
 Database: MySQL
-Components: Node.js, GRUNT, SCSS, Normalize, Modernizr, jQuery, Respond.js
 Software: Sublime text 2, PyCharm, PhpStorm, Adobe Photoshop
 Doctype: HTML5

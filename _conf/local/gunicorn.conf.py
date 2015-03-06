@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-bind = '0.0.0.0:2388'
+bind = '0.0.0.0:1488'
 pidfile = '/home/www/rhyt/run/rhyt.gunicorn.pid'
-workers = 5
+workers = 3
 timeout = 900
 
 ## Logging

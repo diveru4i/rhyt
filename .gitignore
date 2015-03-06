@@ -4,6 +4,7 @@
 log/*
 run/*
 tmp/*
+env/*
 
 
 # Patterns
