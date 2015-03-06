@@ -28,23 +28,26 @@
 <![endif]-->
 <!--[if gt IE 8]><!-->
 <body>
-<!--<![endif]-->
-<header class="header row clearfix">
-    <a class="logo-link" href="{% url 'index' %}" title="На главную">Пирогова Олеся &mdash;
-        семейный фотограф</a>
-        {% include "blocks/menu.html" %}
-</header>
-<div class="container row clearfix">
-    {% if user.is_authenticated %}
-        <a class="to-admin" href="/admin/" target="_blank"></a>
+    <!--<![endif]-->
+    <header class="header row clearfix">
+        <a class="logo-link" href="{% url 'index' %}" title="На главную">Пирогова Олеся &mdash;
+            семейный фотограф</a>
+            {% include "blocks/menu.html" %}
+    </header>
+    <div class="container row clearfix">
+        {% if user.is_authenticated %}
+            <a class="to-admin" href="/admin/" target="_blank"></a>
+        {% endif %}
+        {% block aside %}{% endblock aside %}
+
+        {% block content %}{% endblock content %}
+
+    </div>
+    <footer class="footer row">
+    </footer>
+    <script src="{% static "core/js/main.js" %}"></script>
+    {% if not DEBUG %}
+        {% include "blocks/google_analytics.html" %}
     {% endif %}
-    {% block aside %}{% endblock aside %}
-
-    {% block content %}{% endblock content %}
-
-</div>
-<footer class="footer row">
-</footer>
-<script src="{% static "core/js/main.js" %}"></script>
-</body>
+    </body>
 </html>

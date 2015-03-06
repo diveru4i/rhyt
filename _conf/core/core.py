@@ -65,6 +65,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
+    'core.context_processors.if_debug'
 )
 
 MIDDLEWARE_CLASSES = (
