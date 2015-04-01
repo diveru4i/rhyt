@@ -17,14 +17,16 @@
 {% block content %}
     <main class="main" role="main">
 
-        <div class="entry-list-item" style="background-image:url({{ object.banner|thumbnail_url:'blog_banner' }})">
-            <div class="plank">
-                <span class="name">{{ object.name }}</span><br/>
-                <span class="date">{{ object.datetime }}</span>
-            </div>
-            <div class="annotation">
-                <span>{{ object.annotation }}</span>
-            </div>
+        <div class="entry-container">
+            <a class="entry-list-item" href="{% url 'blog' %}" style="background-image:url({{ object.banner|thumbnail_url:'blog_banner' }})">
+                <div class="plank">
+                    <span class="name">{{ object.name }}</span><br/>
+                    {# <span class="date">{{ object.datetime }}</span> #}
+                </div>
+            </a>
+                <p class="annotation">
+                    {{ object.annotation }}
+                </p>
         </div>
 
         {{ object.text|safe }}

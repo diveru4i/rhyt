@@ -93,48 +93,56 @@
 
 }
 
-.entry-list-item {
-    display: block;
-    height: 250px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: black;
-    .plank {
-        height: 50px;
-        padding: 10px;
-        background-color: rgba(255,255,255,0.5);
-        text-align: center;
-        position: relative;
-        .name {
-            font: bold 25px/30px Helvetica, Arial, Tahoma, sans-serif;
-            text-shadow: 0 0 3px black;
-            color: white;
+.entry-container {
+    width: 940px;
+    .entry-list-item {
+        display: inline-block;
+        height: 250px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: black;
+        width: 470px;
+        background-size: 470px 250px;
+        background-position: 50%;
+        transition: background-size .5s;
+        -moz-transition: background-size .5s;
+        -web-kit-transition: background-size .5s;
+        -o-transition: background-size .5s;
+        &:hover {
+            background-size: 500px 280px;
         }
-        .date {
-            position: absolute;
-            bottom: 0;
-            right: 10px;
+
+        .plank {
+            height: 50px;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.5);
+            text-align: center;
+            position: relative;
+            .name {
+                font: bold 25px/30px Helvetica, Arial, Tahoma, sans-serif;
+                text-shadow: 0 0 3px black;
+                color: white;
+            }
+            .date {
+                position: absolute;
+                bottom: 0;
+                right: 10px;
+            }
+        }
+        &:hover {
+            text-decoration: none;
+            color: black;
+            .annotation {
+                opacity: 1;
+            }
         }
     }
     .annotation {
         height: 180px;
-        background-color: rgba(255,255,255,0.5);
-        padding: 0 20px;
-        opacity: 0;
-        -webkit-transition: opacity .25s ease;
-        -moz-transition: opacity .25s ease;
         position: relative;
-        span {
-            bottom: 60%;
-            position: absolute;
-            max-width: 850px;
-        }
-    }
-    &:hover {
-        text-decoration: none;
-        color: black;
-        .annotation {
-            opacity: 1;
-        }
+        width: 450px;
+        float: right;
     }
 }
+
+
