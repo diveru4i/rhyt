@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="{% static "core/css/normalize.css" %}">
     <link rel="stylesheet" href="{% static "core/css/main.css" %}">
     <link rel="stylesheet" href="{% static "core/css/master.css" %}">
+    {% block styles_top %}{% endblock styles_top %}
     <script src="{% static "vendor/jquery.min.js" %}"></script>
+    {% block scripts_top %}{% endblock scripts_top %}
 </head>
 <!--[if lt IE 8]>
 <body class="lt-ie9 lt-ie8">
@@ -29,6 +31,7 @@
 <!--[if gt IE 8]><!-->
 <body>
     <!--<![endif]-->
+    {% block fb_sdk %}{% endblock fb_sdk %}
     <header class="header row clearfix">
         <a class="logo-link" href="{% url 'index' %}" title="На главную">Пирогова Олеся &mdash;
             семейный фотограф</a>

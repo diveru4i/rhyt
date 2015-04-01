@@ -33,7 +33,6 @@ TINYMCE_DEFAULT_CONFIG = {
     # Skin options
     # 'skin' : "o2k7",
     'skin' : "default",
-    'skin_variant' : "silver",
     # 'theme': "advanced",
     'width': '100%',
     'height': 300,

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load endless %}
+
+{% block title %}Пирогова Олеся &mdash; {{ page.name }}{% endblock title %}
+
+{% block styles_top %}<link rel="stylesheet" href="{% static "core/css/bootstrap-pagination.css" %}">{% endblock styles_top %}
+
+{% block content %}
+
+    {% paginate 10 object_list %}
+    <main class="main" role="main">
+        {% for object in object_list %}
+            <a class="entry-list-item" href="{{ object.get_absolute_url }}" style="background-image:url({{ object.banner|thumbnail_url:'blog_banner' }})">
+                <div class="plank">
+                    <span class="name">{{ object.name }}</span><br/>
+                    <span class="date">{{ object.datetime }}</span>
+                </div>
+                <div class="annotation">
+                    <span>{{ object.annotation }}</span>
+                </div>
+            </a>
+        {% endfor %}
+
+        {% show_pages %}
+    </main>
+{% endblock content %}

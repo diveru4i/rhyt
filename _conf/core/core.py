@@ -108,6 +108,7 @@ INSTALLED_APPS = [
     'endless_pagination',
     'draggable_sorting',
     'core',
+    'blog',
 ]
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'

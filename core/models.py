@@ -27,7 +27,6 @@ class Gallery(OrderedModel):
     text = HTMLField(u'Описание', blank=True, null=True)
 
     def get_cover(self):
-        print self.images.filter(main=True).first()
         return self.images.filter(main=True).first() or self.images.first()
 
     def get_absolute_url(self):

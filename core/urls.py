@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^admin/clear_cache/', never_cache(clear_cache), name='clear_cache'),
 
     url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^blog/', include('blog.urls')),
     url(r'^(?P<slug>[-_\w]+)/$', GenericPageView.as_view(), name='page'),
 
     url(r'^markup/(?P<template_name>([-_\w]+\/?)+\.html)$', MarkupView.as_view(), name='markup'),

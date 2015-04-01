@@ -8,7 +8,7 @@ SUIT_CONFIG = {
     'MENU': [
         {'app': 'core', 'label': u'Управление сайтом', 'icon': 'icon-wrench'},
         # {'app': 'about', 'label': u'О Канторе', 'icon': 'icon-user'},
-        # {'app': 'pa', 'label': u'Организации', 'icon': 'icon-star'},
+        {'app': 'blog', 'label': u'Блог', 'icon': 'icon-star'},
         # {'app': 'events', 'label': u'События', 'icon': 'icon-calendar'},
         # {'app': 'press', 'label': u'Пресс-центр', 'icon': 'icon-globe'},
         # {'app': 'docs', 'label': u'Документы', 'icon': 'icon-folder-open'},

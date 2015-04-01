@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}{{ object.name }}{% endblock title %}
+
+{% block fb_sdk %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&appId=237271456457311&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+{% endblock fb_sdk %}
+
+{% block content %}
+    <main class="main" role="main">
+
+        <div class="entry-list-item" style="background-image:url({{ object.banner|thumbnail_url:'blog_banner' }})">
+            <div class="plank">
+                <span class="name">{{ object.name }}</span><br/>
+                <span class="date">{{ object.datetime }}</span>
+            </div>
+            <div class="annotation">
+                <span>{{ object.annotation }}</span>
+            </div>
+        </div>
+
+        {{ object.text|safe }}
+
+        <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-width="940" data-numposts="5" data-colorscheme="light" data-version="v2.3"></div>
+    </main>
+{% endblock content %}
