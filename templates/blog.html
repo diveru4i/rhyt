@@ -16,7 +16,7 @@
                 <span class="date">----------{{ object.datetime|date:'F Y'|lower }}----------</span>
                 <h2>{{ object.name }}</h2>
                 <p class="annotation">{{ object.annotation }}</p>
-                <img src="{{ object.banner|thumbnail_url:'blog_banner' }}"/>
+                <a href="{{ object.get_absolute_url }}"><img src="{{ object.banner|thumbnail_url:'blog_banner' }}"/></a>
                 <a class="moar" href="{{ object.get_absolute_url }}">ЧИТАТЬ ДАЛЕЕ&gt;&gt;</a>
             </div>
         {% endfor %}
