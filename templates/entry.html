@@ -17,19 +17,16 @@
 {% block content %}
     <main class="main" role="main">
 
-        <div class="entry-container">
-            <a class="entry-list-item" href="{% url 'blog' %}" style="background-image:url({{ object.banner|thumbnail_url:'blog_banner' }})">
-                <div class="plank">
-                    <span class="name">{{ object.name }}</span><br/>
-                    {# <span class="date">{{ object.datetime }}</span> #}
-                </div>
-            </a>
-                <p class="annotation">
-                    {{ object.annotation }}
-                </p>
-        </div>
-
-        {{ object.text|safe }}
+        <article class="entry">
+            <div class="entry-list-container">
+                <span class="date">----------{{ object.datetime|date:'F Y'|lower }}----------</span>
+                <h2>{{ object.name }}</h2>
+                <p class="annotation">{{ object.annotation }}</p>
+                <img src="{{ object.banner|thumbnail_url:'blog_banner' }}"/>
+                <a class="moar" href="{{ object.get_absolute_url }}">ЧИТАТЬ ДАЛЕЕ&gt;&gt;</a>
+                {{ object.text|safe }}
+            </div>
+        </article>
 
         <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-width="940" data-numposts="5" data-colorscheme="light" data-version="v2.3"></div>
     </main>

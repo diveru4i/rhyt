@@ -1,3 +1,9 @@
+// mixins
+.default-text {
+    color: black;
+    font: 18px/19px Arial, serif;
+}
+
 .left-menu-item.active a{
     color: #ec0b11;
 }
@@ -27,6 +33,12 @@
     &.wo-padding {
         padding: 0;
     }
+}
+
+.main h2 {
+    // -webkit-margin-after: 0em;
+    margin-bottom: 0;
+    font: bold 22px/24px Arial, serif;
 }
 
 .to-admin {
@@ -93,55 +105,43 @@
 
 }
 
-.entry-container {
-    width: 940px;
-    .entry-list-item {
-        display: inline-block;
-        height: 250px;
-        margin-bottom: 10px;
-        text-decoration: none;
-        color: black;
-        width: 470px;
-        background-size: 470px 250px;
-        background-position: 50%;
-        transition: background-size .5s;
-        -moz-transition: background-size .5s;
-        -web-kit-transition: background-size .5s;
-        -o-transition: background-size .5s;
-        &:hover {
-            background-size: 500px 280px;
+.entry-list-container {
+    text-align: center;
+    width: 900px;
+    position: relative;
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+    .entry & {
+        border: none;
+        p {
+            text-align: justify;
+            .default-text;
         }
-
-        .plank {
-            height: 50px;
-            padding: 10px;
-            background-color: rgba(255,255,255,0.5);
-            text-align: center;
-            position: relative;
-            .name {
-                font: bold 25px/30px Helvetica, Arial, Tahoma, sans-serif;
-                text-shadow: 0 0 3px black;
-                color: white;
-            }
-            .date {
-                position: absolute;
-                bottom: 0;
-                right: 10px;
-            }
-        }
-        &:hover {
-            text-decoration: none;
-            color: black;
-            .annotation {
-                opacity: 1;
-            }
+        img {
+            margin: 10px 0;
         }
     }
     .annotation {
-        height: 180px;
-        position: relative;
-        width: 450px;
-        float: right;
+        text-align: justify;
+        .default-text;
+        .entry & {
+            display: none;
+        }
+    }
+    .moar {
+        font: 14px/16px Arial, serif;
+        text-decoration: none;
+        color: #7f7c7c;
+        width: 100%;
+        display: block;
+        text-align: left;
+        margin: 25px 0;
+        .entry & {
+            display: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

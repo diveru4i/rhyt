@@ -12,17 +12,13 @@
     {% paginate 10 object_list %}
     <main class="main" role="main">
         {% for object in object_list %}
-        <div class="entry-container">
-            <a class="entry-list-item" href="{{ object.get_absolute_url }}" style="background-image:url({{ object.banner|thumbnail_url:'blog_banner' }})">
-                <div class="plank">
-                    <span class="name">{{ object.name }}</span><br/>
-                    {# <span class="date">{{ object.datetime }}</span> #}
-                </div>
-            </a>
-                <p class="annotation">
-                    {{ object.annotation }}
-                </p>
-        </div>
+            <div class="entry-list-container">
+                <span class="date">----------{{ object.datetime|date:'F Y'|lower }}----------</span>
+                <h2>{{ object.name }}</h2>
+                <p class="annotation">{{ object.annotation }}</p>
+                <img src="{{ object.banner|thumbnail_url:'blog_banner' }}"/>
+                <a class="moar" href="{{ object.get_absolute_url }}">ЧИТАТЬ ДАЛЕЕ&gt;&gt;</a>
+            </div>
         {% endfor %}
 
         {% show_pages %}
