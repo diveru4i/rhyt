@@ -132,6 +132,9 @@
     .menu-link {
         font: 20px/22px Arial, Tahoma, sans-serif !important;
     }
+    .left-menu {
+        display: none;
+    }
 }
 
 
