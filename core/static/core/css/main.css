@@ -78,6 +78,7 @@
     /*right: 0;*/
     padding: 0;
     position: relative;
+    font-size: 30px;
 }
 
 .slicknav_nav {
@@ -115,7 +116,7 @@
     }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 860px) {
     .gallery {
         max-width: 600px;
     }
@@ -127,6 +128,9 @@
     }
     header {
         margin-top: -50px !important;
+    }
+    .menu-link {
+        font: 20px/22px Arial, Tahoma, sans-serif !important;
     }
 }
 
