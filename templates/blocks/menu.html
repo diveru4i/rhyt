@@ -9,4 +9,12 @@
             </li>
         {% endfor %}
     </ul>
+
+    <ul id="menu" class="mobile-menu">
+        {% for menu_item in menu_items %}
+            <li>
+                <a class="menu-link {% if page.slug == menu_item.slug %}active{% endif %}" href="{{ menu_item.get_absolute_url }}" href="{{ menu_item.get_absolute_url }}">{{ menu_item.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
 </nav>
