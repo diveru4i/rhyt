@@ -178,9 +178,9 @@
     color: #7f7c7c;
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 1000px) {
     .main p {
-        font: italic 14px/15px "Athelas", serif;
+        font: italic 20px/22px "Times New Roman", serif;
     }
 }
 
@@ -258,9 +258,4 @@ img.float-left {
 }
 img.float-right {
     margin: 0 10px 10px 30px;
-}
-
-.index_text {
-    text-align: center;
-    margin: 40px 0;
 }

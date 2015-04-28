@@ -4,7 +4,7 @@
     font: 18px/19px Times New Roman, serif;
     @media screen {
         @media (max-width: 860px) {
-            font: 14px/15px Arial, serif;
+            font: 25px/27px Times New Roman, serif;
         }
     }
 }
@@ -82,6 +82,11 @@
     opacity: 0.8;
 }
 
+.index_text {
+    text-align: center;
+    margin: 40px 20px;
+}
+
 .gallery {
     .gallery-link {
         display: inline-block;
@@ -90,30 +95,59 @@
         height: 280px;
         border-radius: 100%;
         margin: 10px;
-        background-size: 270px 270px;
+        background-size: 300px 300px;
         background-position: 50%;
         transition: background-size .5s;
         -moz-transition: background-size .5s;
         -web-kit-transition: background-size .5s;
         -o-transition: background-size .5s;
+        @media screen {
+            @media (max-width: 1050px) {
+                width: 400px;
+                height: 400px;
+                background-size: 400px 400px;
+            }
+            @media (max-width: 640px) {
+                width: 280px;
+                height: 280px;
+                background-size: 300px 300px;
+            }
+        }
         .overlay {
             background: rgba(255,255,255,0.5);
             -webkit-transition: opacity .25s ease;
             -moz-transition: opacity .25s ease;
             height: 276px;
+            width: 276px;
             border-radius: 100%;
             border: 2px solid transparent;
-            width: 276px;
             text-align: center;
             display: table-cell;
             vertical-align: middle;
             opacity: 0;
+            @media screen {
+                @media (max-width: 1050px) {
+                    width: 396px;
+                    height: 396px;
+                }
+            }
+            @media screen {
+                @media (max-width: 640px) {
+                    width: 276px;
+                    height: 276px;
+                }
+            }
 
             .gallery-link-name {
                 position: inherit;
                 font: bold 25px/30px Helvetica, Arial, Tahoma, sans-serif;
                 text-shadow: 0 0 3px black;
                 color: white;
+                @media screen {
+                    @media (max-width: 1050px) {
+                        font: bold 40px/45px Helvetica, Arial, Tahoma, sans-serif;
+                    }
+                }
             }
         }
         img {
@@ -127,7 +161,15 @@
             .overlay{
                 opacity: 1;
             }
-            background-size: 300px 300px;
+            background-size: 320px 320px;
+            @media screen {
+                @media (max-width: 1050px) {
+                    background-size: 420px 420px;
+                }
+            }
+            @media (max-width: 640px) {
+                background-size: 320px 320px;
+            }
         }
     }
 
