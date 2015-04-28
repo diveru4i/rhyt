@@ -171,6 +171,10 @@
     height: 400px;
 }
 
+.main.index {
+    margin-left: 200px;
+}
+
 .main p {
     margin: 0;
     padding: 0 0 20px 0;

@@ -17,7 +17,7 @@
 {% endcomment %}
 
 {% block content %}
-    <main class="main" role="main">
+    <main class="main {% if index %}index{% endif %}" role="main">
         <div class="gallery">
             {% if object %}
                 {{ object.text|default:''|safe }}
