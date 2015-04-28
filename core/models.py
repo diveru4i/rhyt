@@ -20,56 +20,32 @@ class OrderedModel(models.Model):
         abstract = True
 
 
-class GalleryProxy(object):
-
-    def get_cover(self):
-        return self.images.filter(main=True).first() or self.images.first()
-
-    def get_absolute_url(self):
-        return u'{0}?g={1}'.format(reverse('index'), self.slug)
-
-    def _remove_tuples(self):
-        for param in ['images', 'name', 'slug']:
-            if hasattr(self, param) and type(getattr(self, param)) is tuple:
-                setattr(self, param, getattr(self, param)[0])
-        return self
-
-
-class Gallery(GalleryProxy, OrderedModel):
+class Gallery(OrderedModel):
     name = models.CharField(u'Название', max_length=255)
     slug = models.SlugField(u'Слаг', unique=True)
     text = HTMLField(u'Описание', blank=True, null=True)
+    main = models.BooleanField(u'Главная галерея', default=False)
 
     class Meta:
         verbose_name = u'галерею'
         verbose_name_plural = u'Галереи'
-        ordering = ['order']
+        ordering = ['main', 'order']
 
     def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
-        return u'{0}?g={1}'.format(reverse('series'), self.slug)
+        url_name = 'index' if self.main else 'series'
+        return u'{0}?g={1}'.format(reverse(url_name), self.slug)
 
-
-class ImageCat(OrderedModel):
-    name = models.CharField(u'Название', max_length=255)
-    slug = models.SlugField(u'Слаг', unique=True)
-
-    class Meta:
-        verbose_name = u'категорию'
-        verbose_name_plural = u'Категории изображений'
-        ordering = ['order']
-
-    def __unicode__(self):
-        return self.name
+    def get_cover(self):
+        return self.images.filter(main=True).first() or self.images.first()
 
 
 class Image(OrderedModel):
     gallery = models.ForeignKey(Gallery, related_name='images')
     img = FilerImageField(verbose_name=u'Изображение', blank=True, null=True, related_name=u'image_img')
     main = models.BooleanField(u'Обложка галереи', default=False)
-    cat = models.ForeignKey(ImageCat, verbose_name=u'Категория', blank=True, null=True)
 
     def __unicode__(self):
         return u'{0}: {1}'.format(self.gallery.name, self.order)
