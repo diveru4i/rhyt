@@ -77,7 +77,7 @@
     /*right: 0;*/
     padding: 0;
     position: relative;
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .slicknav_nav {
@@ -132,7 +132,7 @@
         margin-top: -50px !important;
     }
     .menu-link {
-        font: 20px/22px Arial, Tahoma, sans-serif !important;
+        font: 45px/47px Arial, Tahoma, sans-serif !important;
     }
     /*.left-menu {*/
         /*display: none;*/
