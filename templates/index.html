@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 
+
 {% block aside %}
+{% if object %}
     <aside class="left-menu">
-        <ul class="left-menu-list">
-            {% for gal in object_list %}
-                <li class="left-menu-item {% if gal.slug == object.slug %}active{% endif %}">
-                    <a class="left-menu-link" href="{{ gal.get_absolute_url }}">{{ gal.name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+        {% if index %}
+            <a class="left-menu-link menu-link" href="{% url 'index' %}">&#8592; На главную</a>
+        {% else %}
+            <a class="left-menu-link menu-link" href="{% url 'series' %}">&#8592; Все серии</a>
+        {% endif %}
     </aside>
+{% endif %}
 {% endblock aside %}
 
 {% block content %}
@@ -31,5 +32,8 @@
                 {% endfor %}
             {% endif %}
         </div>
+        {% if index and not object %}
+            <div class="index_text">{{ page.text|safe }}</div>
+        {% endif %}
     </main>
 {% endblock content %}

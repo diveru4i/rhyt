@@ -13,7 +13,6 @@ from django.core.urlresolvers import reverse, NoReverseMatch
 from django.db import models
 
 
-
 class OrderedModel(models.Model):
     order = models.PositiveSmallIntegerField(u'Приоритет', default=1)
 
@@ -21,10 +20,7 @@ class OrderedModel(models.Model):
         abstract = True
 
 
-class Gallery(OrderedModel):
-    name = models.CharField(u'Название', max_length=255)
-    slug = models.SlugField(u'Слаг', unique=True)
-    text = HTMLField(u'Описание', blank=True, null=True)
+class GalleryProxy(object):
 
     def get_cover(self):
         return self.images.filter(main=True).first() or self.images.first()
@@ -32,19 +28,48 @@ class Gallery(OrderedModel):
     def get_absolute_url(self):
         return u'{0}?g={1}'.format(reverse('index'), self.slug)
 
-    def __unicode__(self):
-        return self.name
+    def _remove_tuples(self):
+        for param in ['images', 'name', 'slug']:
+            if hasattr(self, param) and type(getattr(self, param)) is tuple:
+                setattr(self, param, getattr(self, param)[0])
+        return self
+
+
+class Gallery(GalleryProxy, OrderedModel):
+    name = models.CharField(u'Название', max_length=255)
+    slug = models.SlugField(u'Слаг', unique=True)
+    text = HTMLField(u'Описание', blank=True, null=True)
 
     class Meta:
         verbose_name = u'галерею'
         verbose_name_plural = u'Галереи'
         ordering = ['order']
 
+    def __unicode__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return u'{0}?g={1}'.format(reverse('series'), self.slug)
+
+
+class ImageCat(OrderedModel):
+    name = models.CharField(u'Название', max_length=255)
+    slug = models.SlugField(u'Слаг', unique=True)
+
+    class Meta:
+        verbose_name = u'категорию'
+        verbose_name_plural = u'Категории изображений'
+        ordering = ['order']
+
+    def __unicode__(self):
+        return self.name
+
 
 class Image(OrderedModel):
     gallery = models.ForeignKey(Gallery, related_name='images')
     img = FilerImageField(verbose_name=u'Изображение', blank=True, null=True, related_name=u'image_img')
     main = models.BooleanField(u'Обложка галереи', default=False)
+    cat = models.ForeignKey(ImageCat, verbose_name=u'Категория', blank=True, null=True)
 
     def __unicode__(self):
         return u'{0}: {1}'.format(self.gallery.name, self.order)
@@ -74,6 +99,3 @@ class Page(OrderedModel):
         verbose_name = u'страницу'
         verbose_name_plural = u'Настройки страниц'
         ordering = ['order']
-
-
-

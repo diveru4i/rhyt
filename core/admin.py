@@ -6,7 +6,7 @@ from suit.widgets import AutosizedTextarea
 from django.contrib import admin
 from django.forms import ModelForm
 
-from core.models import Gallery, Image, Page
+from core.models import Gallery, Image, Page, ImageCat
 from utils.admin import OpenMultiButtonMixin
 
 
@@ -17,6 +17,7 @@ class ImageInlineForm(ModelForm):
         widgets = {
             'text': AutosizedTextarea(attrs={'rows': 5, 'class': 'input-xlarge'}),
         }
+
 
 class PageAdminForm(ModelForm):
     model = Page
@@ -35,7 +36,7 @@ class ImageInline(DraggableMixin, SortableStackedInline):
     suit_classes = 'suit-tab suit-tab-gallery'
     fieldsets = [
         (None, {
-            'fields': [('main', 'img')],
+            'fields': [('main', 'img'), 'cat'],
         })
     ]
 
@@ -75,9 +76,14 @@ class PageAdmin(SortableModelAdmin):
     ]
 
 
+class ImageCatAdmin(SortableModelAdmin):
+    prepopulated_fields = {'slug': ['name']}
+    list_display = ['name', 'slug']
+
 
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(Page, PageAdmin)
+admin.site.register(ImageCat, ImageCatAdmin)
 
 
 ###################### signals
@@ -86,7 +92,3 @@ from django.db.models.signals import post_save
 from core.signals import MultiGalleryUploader
 
 post_save.connect(MultiGalleryUploader.create_gallery_image_on_upload, sender=filerImage, dispatch_uid='multi_gallery_uploader')
-
-
-
-

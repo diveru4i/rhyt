@@ -4,17 +4,19 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.decorators.cache import never_cache
 
-from core.views import IndexView, GenericPageView, MarkupView
+from core.views import CategoryView, PortfolioView, GenericPageView, MarkupView
 from utils.views import clear_cache
 
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/clear_cache/', never_cache(clear_cache), name='clear_cache'),
 
-    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^$', CategoryView.as_view(), name='index'),
+    url(r'^series/$', PortfolioView.as_view(), name='series'),
     url(r'^blog/', include('blog.urls')),
     url(r'^(?P<slug>[-_\w]+)/$', GenericPageView.as_view(), name='page'),
 
