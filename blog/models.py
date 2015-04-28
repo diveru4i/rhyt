@@ -27,5 +27,3 @@ class Entry(models.Model):
         ordering = ['-datetime']
         verbose_name = u'запись'
         verbose_name_plural = u'Записи'
-
-
