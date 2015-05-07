@@ -45,6 +45,7 @@
 }
 
 .main-menu {
+    z-index: 1;
     position: relative;
     margin: 215px 0 0 220px;
     border-top: 2px solid #e94b54;
