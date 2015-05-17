@@ -15,6 +15,15 @@
             margin-left: 0 !important;
         }
     }
+    &.generic {
+        margin-left: 220px !important;
+        @media screen {
+            @media (max-width: 640px) {
+                margin-left: 0 !important;
+                margin-top: 60px;
+            }
+        }
+    }
 }
 
 .left-menu-item.active a{
@@ -230,7 +239,7 @@
     width: 95%;
     position: relative;
     border-bottom: 1px solid black;
-    margin: 10px 0;
+    margin: 10px auto 0 auto;
     .entry & {
         border: none;
         p {

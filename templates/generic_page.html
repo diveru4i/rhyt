@@ -4,7 +4,7 @@
 {% block title %}{{ page.name }}{% endblock title %}
 
 {% block content %}
-    <main class="main" role="main">
+    <main class="main generic" role="main">
         {% if page.banner %}
             <img class="float-left" src="{{ page.banner|thumbnail_url:'side_page_banner' }}" alt="{{ page.name }}" />
         {% endif %}

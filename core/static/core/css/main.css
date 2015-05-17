@@ -225,11 +225,13 @@
 .gallery {
     /*padding: 0 20px 0 20px;*/
     text-align: center;
+    margin-top: 55px;
 }
 
 .gallery img {
     display: block;
     margin-bottom: 30px;
+    margin: 0 auto 30px auto;
 }
 
 .gallery-link {
