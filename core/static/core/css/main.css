@@ -115,13 +115,14 @@
         /*margin-left: -40px !important;*/
     }
     .main {
-        margin-left: 220px !important;
+        margin-left: 0 !important;
+        margin-top: 45px;
     }
 }
 
 @media screen and (max-width: 1050px) {
     .gallery {
-        max-width: 600px;
+        /*max-width: 600px;*/
     }
     .menu-list {
         display: none;
