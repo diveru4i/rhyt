@@ -9,3 +9,4 @@ django-tinymce==1.5.3
 python-memcached==1.53
 django-simple-captcha==0.4.2
 -e git+https://github.com/diveru4i/django-draggable_sorting.git#egg=draggable_sorting
+django-simple-captcha==0.4.5

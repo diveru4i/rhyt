@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{% static "core/css/main.css" %}">
     <link rel="stylesheet" href="{% static "core/css/master.css" %}">
     {% block styles_top %}{% endblock styles_top %}
+
+    <script src="{% static "vendor/modernizr.min.js" %}"></script>
     <script src="{% static "vendor/jquery.min.js" %}"></script>
     <script src="{% static "vendor/slicknav/jquery.slicknav.min.js" %}"></script>
     {% block scripts_top %}{% endblock scripts_top %}
@@ -51,6 +53,7 @@
     <footer class="footer row">
     </footer>
     <script src="{% static "core/js/main.js" %}"></script>
+    {% block scripts_bottom %}{% endblock scripts_bottom %}
     <script>
         $(function(){
             $('#menu').slicknav({
@@ -61,5 +64,6 @@
     {% if not DEBUG %}
         {% include "blocks/google_analytics.html" %}
     {% endif %}
+
     </body>
 </html>

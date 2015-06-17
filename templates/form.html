@@ -1,0 +1,70 @@
+<section class="feedback">
+<div class="feedback-form-wrapper">
+    <div class="feedback-form-bg">
+        <form class="feedback-form js-feedback-form" action="#feedback-form" method="post" id="feedback-form">
+            {% csrf_token %}
+            <div class="feedback-form-content">
+                <h3 class="form-header">Оставить отзыв</h3>
+                <p class="form-enter-text">*Все поля обязательны.</p>
+
+                <div class="form-field">
+                    <label class="form-label" for="id_name">
+                        *Ваше Имя Фамилия:
+                    </label>
+                    <label class="form-error-text" for="id_name">Обязательное поле</label>
+                    <label class="form-help-text inline-field" for="id_name">
+                        Иван Петров
+                        {{ form.name }}
+                    </label>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="id_email">
+                        *E-mail:
+                    </label>
+                    <label class="form-error-text" for="id_email">Обязательное поле</label>
+                    <label class="form-help-text inline-field" for="id_email">
+                        example@example.ru
+                        {{ form.email }}
+                    </label>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="id_message">
+                        *Текст сообщения:
+                    </label>
+                    <label class="form-error-text" for="id_message">Обязательное поле</label>
+                    <label class="form-help-text multiline-field" for="id_message">
+                        Введите текст сообщения
+                        {{ form.message }}
+                    </label>
+                </div>
+                <div class="form-field captcha-field">
+                    <label class="form-label" for="id_captcha_1">
+                        *Текст на картинке:
+                    </label>
+                    <label class="form-error-text" for="id_captcha_1">Обязательное поле</label>
+
+                    {{ form.captcha }}
+                </div>
+                <button type="submit" class="form-submit">Отправить</button>
+            </div>
+        </form>
+        <div class="feedback-form-success">
+            <div class="form-success-message">
+                <h3 class="form-header">Сообщение отправлено!</h3>
+
+                <p class="form-enter-text">Спасибо, за отзыв!</p>
+                <button type="button" class="form-show js-show-form-reset">Написать еще одно сообщение</button>
+            </div>
+        </div>
+        <div class="feedback-form-failure">
+            <div class="form-failure-message">
+                <h3 class="form-header">Произошла ошибка!</h3>
+
+                <p class="form-enter-text">К сожалению ваше сообщение не может быть отправленно в настоящий момент.<br>Попробуйте
+                    отправить его позднее</p>
+                <button type="button" class="form-show js-show-form">Попробовать ещё раз</button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

@@ -3,9 +3,12 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, FormView
+from django.views.generic.detail import SingleObjectMixin
 
+from core.forms import FeedbackForm
 from core.models import Gallery, Page, Image
+from utils.views import CaptchaMixin
 
 
 class MarkupView(TemplateView):
@@ -33,13 +36,23 @@ class PortfolioView(ListView):
         context['index'] = self.index
         return context
 
+
 class CategoryView(PortfolioView):
     page = Page.objects.first()
     queryset = Gallery.objects.filter(main=True)
     index = True
 
 
-class GenericPageView(DetailView):
+class GenericPageView(SingleObjectMixin, CaptchaMixin, FormView):
+    form_class = FeedbackForm
     template_name = 'generic_page.html'
     model = Page
     context_object_name = 'page'
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(GenericPageView, self).get(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(GenericPageView, self).post(request, *args, **kwargs)

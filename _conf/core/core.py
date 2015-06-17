@@ -106,6 +106,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'gunicorn',
     'endless_pagination',
+    'captcha',
     'draggable_sorting',
     'core',
     'blog',

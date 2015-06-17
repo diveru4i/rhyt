@@ -20,6 +20,8 @@ urlpatterns = patterns(
     url(r'^blog/', include('blog.urls')),
     url(r'^(?P<slug>[-_\w]+)/$', GenericPageView.as_view(), name='page'),
 
+
+    url(r'^captcha/', include('captcha.urls')),
     url(r'^markup/(?P<template_name>([-_\w]+\/?)+\.html)$', MarkupView.as_view(), name='markup'),
 
 )

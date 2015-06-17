@@ -1,7 +1,21 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load thumbnail %}
 
 {% block title %}{{ page.name }}{% endblock title %}
+
+{% block styles_top %}
+    {% if page.is_feedback %}
+        <link rel="stylesheet" type="text/css" href="{% static "core/css/feedback.css" %}">
+    {% endif %}
+{% endblock styles_top %}
+
+{% block scripts_bottom %}
+    {% if page.is_feedback %}
+        <script src="{% static "core/js/form.js" %}"></script>
+        <script src="{% static "core/js/initForm.js" %}"></script>
+    {% endif %}
+{% endblock scripts_bottom %}
 
 {% block content %}
     <main class="main generic" role="main">
@@ -10,5 +24,9 @@
         {% endif %}
 
         {{ page.text|safe }}
+
+        {% if page.is_feedback %}
+            {% include "form.html" %}
+        {% endif %}
     </main>
 {% endblock content %}

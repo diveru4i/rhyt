@@ -1,0 +1,431 @@
+/* --------------------
+    Блок с обратной связью и ссылками
+   -------------------- */
+.feedback {
+  overflow: hidden;
+  display: none;
+  margin-top: 25px;
+}
+@media (min-width: 421px) {
+  .feedback {
+    display: block;
+  }
+}
+.is-no-mediaqueries .feedback {
+  display: block;
+}
+.feedback .feedback-form-wrapper {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .feedback .feedback-form-wrapper {
+    float: left;
+    width: 90%;
+  }
+}
+.is-no-mediaqueries .feedback .feedback-form-wrapper {
+  float: left;
+  width: 50%;
+}
+.feedback .feedback-form-bg {
+  position: relative;
+  background: #b0b0b0;
+}
+@media (min-width: 421px) {
+  .feedback .feedback-form-bg {
+    width: 100%;
+    padding: 0 0 0 100%;
+    margin-left: -100%;
+  }
+}
+.is-no-mediaqueries .feedback .feedback-form-bg {
+  width: 100%;
+  padding: 0 0 0 100%;
+  margin-left: -100%;
+}
+.feedback .is-processing .feedback-form {
+  opacity: 0;
+  visibility: hidden;
+}
+.feedback .is-processing .feedback-form-success {
+  opacity: 0;
+  visibility: hidden;
+}
+.feedback .is-processing .feedback-form-failure {
+  opacity: 0;
+  visibility: hidden;
+}
+.feedback .is-submitted .feedback-form {
+  opacity: 0;
+  visibility: hidden;
+}
+.feedback .is-submitted .feedback-form-success {
+  visibility: visible;
+  opacity: 1;
+}
+.feedback .is-submitted .feedback-form-failure {
+  opacity: 0;
+  visibility: hidden;
+}
+.feedback .is-not-submitted .feedback-form {
+  opacity: 0;
+  visibility: hidden;
+}
+.feedback .is-not-submitted .feedback-form-success {
+  opacity: 0;
+  visibility: hidden;
+}
+.feedback .is-not-submitted .feedback-form-failure {
+  visibility: visible;
+  opacity: 1;
+}
+.feedback .feedback-form {
+  display: block;
+  position: relative;
+  opacity: 1;
+  -webkit-transition: opacity .3s ease, visibility 0s ease;
+  -moz-transition: opacity .3s ease, visibility 0s ease;
+  transition: opacity .3s ease, visibility 0s ease;
+}
+.feedback .feedback-form-failure,
+.feedback .feedback-form-success {
+  position: absolute;
+  margin: 0 auto;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity .3s ease, visibility 0s ease;
+  -moz-transition: opacity .3s ease, visibility 0s ease;
+  transition: opacity .3s ease, visibility 0s ease;
+}
+.feedback .form-failure-message,
+.feedback .form-success-message {
+  display: block;
+  padding: 41px 125px 10px 30px;
+}
+@media (min-width: 421px) {
+  .feedback .feedback-form-content {
+    padding: 25px 50px 70px 30px;
+  }
+}
+.is-no-mediaqueries .feedback .feedback-form-content {
+  padding: 41px 125px 10px 30px;
+}
+.feedback .form-header {
+  display: block;
+  padding: 0;
+  margin: 0 0 7px 0;
+  font: 700 18px/30px "Ubuntu", Arial, sans-serif;
+  text-transform: uppercase;
+  color: #fefefe;
+}
+.feedback .form-enter-text {
+  padding: 0;
+  margin: 0 0 26px 0;
+  font: 500 14px/17px "Ubuntu", Arial, sans-serif;
+  color: #fefefe;
+}
+.feedback .form-enter-text a {
+  color: #ffdd00;
+}
+.feedback .form-field {
+  margin: 0 0 17px 0;
+}
+.feedback .form-field.error .form-error-text {
+  display: inline-block;
+}
+.feedback .form-field.error .form-help-text input, .feedback .form-field.error .form-help-text textarea {
+  border-color: #ff592a;
+}
+.feedback .form-field.captcha-field {
+  width: 60%;
+  float: left;
+}
+.feedback .form-field.inuse .form-help-text {
+  color: #ececec;
+}
+.feedback .form-field.inuse input, .feedback .form-field.inuse textarea {
+  background: #fefefe;
+}
+.feedback .form-label {
+  float: left;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0 0 11px;
+  margin: 0 0 8px 0;
+  font: 700 10px/12px "Ubuntu", Arial, sans-serif;
+  text-transform: uppercase;
+  color: #fefefe;
+}
+.feedback .form-error-text {
+  float: right;
+  display: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font: 700 10px/12px "Ubuntu", Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  color: #ff592a;
+}
+.feedback .form-help-text {
+  clear: both;
+  position: relative;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  font: 500 18px/40px "Ubuntu", Arial, sans-serif;
+  color: #8c8c8c;
+  background: #ececec;
+  border-radius: 5px;
+  -webkit-transition: color .3s ease;
+  -moz-transition: color .3s ease;
+  transition: color .3s ease;
+}
+.feedback .form-help-text.inline-field {
+  height: 40px;
+}
+.feedback .form-help-text.multiline-field {
+  height: 80px;
+}
+.feedback .form-help-text input, .feedback .form-help-text textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 14px;
+  font: 500 18px/20px "Ubuntu", Arial, sans-serif;
+  background: transparent;
+  color: #8c8c8c;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.feedback .form-help-text input:hover, .feedback .form-help-text input:focus, .feedback .form-help-text textarea:hover, .feedback .form-help-text textarea:focus {
+  border-color: #fefefe;
+}
+.feedback .form-help-text input {
+  height: 40px;
+}
+.feedback .form-help-text textarea {
+  height: 80px;
+  resize: none;
+}
+.feedback .captcha {
+  clear: both;
+  float: left;
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 40px;
+}
+.feedback .captcha .captcha-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 35%;
+  height: 100%;
+  border-radius: 5px;
+}
+.feedback .captcha img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.feedback .captcha .captcha-refresh {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: none;
+  background: transparent url(../img/sprite.png) -50px -120px no-repeat;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .feedback .captcha .captcha-refresh {
+    background-image: url(../img/sprite@2x.png);
+    -webkit-background-size: 500px 500px;
+    background-size: 500px;
+  }
+}
+.feedback .captcha .captcha-refresh:hover, .feedback .captcha .captcha-refresh:focus {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.feedback .captcha .form-help-text {
+  position: absolute;
+  left: auto;
+  right: 0;
+  width: 50%;
+}
+.feedback .captcha input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 40px;
+  font: 500 18px/20px "Ubuntu", Arial, sans-serif;
+  color: #8c8c8c;
+}
+.feedback .form-submit {
+  float: right;
+  margin-top: 20px;
+  padding: 0 38px;
+  background: #ffdd00;
+  color: #d14800;
+  /*font: 500 10px/30px "Ubuntu",Arial,sans-serif;*/
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.form-show, .form-submit {
+  font-size: 14px;
+  line-height: 40px;
+  border-radius: 15px;
+  display: inline-block;
+  border: none;
+}
+
+.feedback .form-submit:hover, .feedback .form-submit:focus {
+  background: #d14800;
+  color: #ffdd00;
+}
+.feedback .form-submit[disabled] {
+  background: #8c8c8c;
+  color: #ececec;
+}
+.feedback .form-show {
+  padding: 0 38px;
+  background: #ffdd00;
+  color: #d14800;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.feedback .form-show:hover, .feedback .form-show:focus {
+  background: #d14800;
+  color: #ffdd00;
+}
+.feedback .about-shortcut-links-list {
+  display: block;
+  width: 100%;
+}
+@media (min-width: 421px) {
+  .feedback .about-shortcut-links-list {
+    float: left;
+    width: 50%;
+  }
+}
+.is-no-mediaqueries .feedback .about-shortcut-links-list {
+  float: left;
+  width: 50%;
+}
+.feedback .about-shortcut-item {
+  display: block;
+}
+.feedback .about-shortcut-item.item-1 .about-shortcut-link {
+  background: #aed300;
+}
+.feedback .about-shortcut-item.item-2 .about-shortcut-link {
+  background: #67b200;
+}
+.feedback .about-shortcut-item.item-3 .about-shortcut-link {
+  background: #076821;
+}
+.feedback .about-shortcut-item.item-4 .about-shortcut-link {
+  background: #03362d;
+}
+.feedback .about-shortcut-link {
+  display: block;
+  width: 100%;
+  height: 124px;
+  padding-right: 100%;
+  color: #fefefe;
+  text-decoration: none;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.feedback .about-shortcut-link:hover, .feedback .about-shortcut-link:focus {
+  background: #fefefe !important;
+  color: #03362d;
+}
+.feedback .about-shortcut-link:hover .link-description:after, .feedback .about-shortcut-link:focus .link-description:after {
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  transform: translateX(10px);
+  background-position: -50px -150px;
+}
+.feedback .about-shortcut-link .link-bg {
+  display: table;
+  width: 100%;
+}
+.feedback .about-shortcut-link .link-title {
+  display: table-cell;
+  width: 120px;
+  height: 124px;
+  padding: 0 10px 0 30px;
+  font: 700 14px/17px "Ubuntu", Arial, sans-serif;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.feedback .about-shortcut-link .link-description {
+  position: relative;
+  display: table-cell;
+  padding: 0 30px;
+  vertical-align: middle;
+  font: 500 14px/17px "Ubuntu", Arial, sans-serif;
+}
+.feedback .about-shortcut-link .link-description:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  background: transparent url(../img/sprite.png) -80px -150px no-repeat;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  -moz-transition: -moz-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min--moz-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .feedback .about-shortcut-link .link-description:after {
+    background-image: url(../img/sprite@2x.png);
+    -webkit-background-size: 500px 500px;
+    background-size: 500px;
+  }
+}
