@@ -36,7 +36,7 @@ class FeedbackForm(forms.Form):
     def send_email(self):
         connection = get_connection()
         html = self.get_message_text()
-        msg = EmailMultiAlternatives(self.subject, html, '', ['rhyt@list.ru'], connection=connection)
+        msg = EmailMultiAlternatives(self.subject, html, '', ['s.pirogov@designdepot.ru'], connection=connection)
         msg.attach_alternative(html, "text/html")
         msg.content_subtype = "html"
         msg.send()

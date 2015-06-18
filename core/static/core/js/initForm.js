@@ -58,3 +58,14 @@
                 .addClass('is-not-submitted');
         }
     });
+
+
+    $('#showFeedback').on('click', function(e){
+        e.preventDefault();
+        var form = $('.feedback-form-wrapper');
+        if (form.css('display') == 'block') {
+            form.hide(300);
+        } else {
+            form.show(300);
+        }
+    });

@@ -1,29 +1,27 @@
 <section class="feedback">
+<a id="showFeedback" href="#"><i class="fa fa-envelope" style="color:grey;margin-right:3px;"></i>Оставить отзыв</a>
 <div class="feedback-form-wrapper">
     <div class="feedback-form-bg">
         <form class="feedback-form js-feedback-form" action="#feedback-form" method="post" id="feedback-form">
             {% csrf_token %}
             <div class="feedback-form-content">
-                <h3 class="form-header">Оставить отзыв</h3>
-                <p class="form-enter-text">*Все поля обязательны.</p>
-
-                <div class="form-field">
+                <div class="form-field" id="fieldName">
                     <label class="form-label" for="id_name">
-                        *Ваше Имя Фамилия:
+                        *Ваше Имя:
                     </label>
                     <label class="form-error-text" for="id_name">Обязательное поле</label>
                     <label class="form-help-text inline-field" for="id_name">
-                        Иван Петров
+                        {# Иван Петров #}
                         {{ form.name }}
                     </label>
                 </div>
-                <div class="form-field">
+                <div class="form-field" id="fieldEmail">
                     <label class="form-label" for="id_email">
                         *E-mail:
                     </label>
                     <label class="form-error-text" for="id_email">Обязательное поле</label>
                     <label class="form-help-text inline-field" for="id_email">
-                        example@example.ru
+                        {# example@example.ru #}
                         {{ form.email }}
                     </label>
                 </div>

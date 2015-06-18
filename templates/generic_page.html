@@ -19,14 +19,15 @@
 
 {% block content %}
     <main class="main generic" role="main">
+        {% if page.is_feedback %}
+            {% include "form.html" %}
+        {% endif %}
+
         {% if page.banner %}
             <img class="float-left" src="{{ page.banner|thumbnail_url:'side_page_banner' }}" alt="{{ page.name }}" />
         {% endif %}
 
         {{ page.text|safe }}
 
-        {% if page.is_feedback %}
-            {% include "form.html" %}
-        {% endif %}
     </main>
 {% endblock content %}

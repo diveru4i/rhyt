@@ -4,8 +4,25 @@
 .feedback {
   overflow: hidden;
   display: none;
-  margin-top: 25px;
+  margin-bottom: 10px;
 }
+
+#showFeedback {
+  color: #ec0b11;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#fieldName {
+  width: 48%;
+  display: inline-block;
+}
+#fieldEmail {
+  width: 48%;
+  display: inline-block;
+  float: right;
+}
+
 @media (min-width: 421px) {
   .feedback {
     display: block;
@@ -15,7 +32,7 @@
   display: block;
 }
 .feedback .feedback-form-wrapper {
-  display: block;
+  display: none;
   width: 100%;
   margin: 0;
 }
