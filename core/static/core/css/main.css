@@ -144,14 +144,14 @@
 
 .menu-link {
     font: 14px/16px Arial, Tahoma, sans-serif;
-    color: #000;
+    color: #585858;
     text-decoration: none;
     -webkit-transition: color .2s ease-in-out;
     transition: color .2s ease-in-out;
 }
 
 .menu-link {
-    color: black !important;
+    color: #585858 !important;
 }
 
 .menu-link:hover,
