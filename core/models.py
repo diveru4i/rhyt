@@ -57,6 +57,7 @@ class Image(OrderedModel):
 
 
 class Page(OrderedModel):
+    parent = models.ForeignKey('Page', blank=True, null=True, related_name=u'children', verbose_name=u'Родительская страница')
     name = models.CharField(u'Название', max_length=255)
     slug = models.SlugField(u'Слаг', unique=True)
     text = HTMLField(u'Контент')

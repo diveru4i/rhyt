@@ -12,11 +12,11 @@
 .main {
     @media screen {
         @media (max-width: 1170px) {
-            margin-left: 0 !important;
+            margin: 10px 0 !important;
         }
     }
     &.generic {
-        margin-left: 220px !important;
+        margin: 10px 20px 0 220px !important;
         @media screen {
             @media (max-width: 640px) {
                 margin-left: 0 !important;
@@ -40,13 +40,51 @@
     position: fixed;
 }
 
+.menu-list {
+    .sub-list {
+        border-left: 4px solid red;
+        list-style: none;
+        padding: 0;
+        position: absolute;
+        /* top: 48px; */
+        /* left: 0; */
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transiton: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        background-color: white;
+        z-index: 1;
+        &:hover {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+        & li {
+            padding: 5px;
+        }
+    }
+    .menu-item:hover {
+        .sub-list {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
 .footer {
     min-height: 100px;
 }
 
 .icons-panel {
     position: absolute;
-    top: 170px;
+    top: 40px;
     right: 0;
     .icon {
         background: url("../img/icons.png") top left no-repeat;

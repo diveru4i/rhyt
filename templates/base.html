@@ -43,9 +43,6 @@
             {% include "blocks/menu.html" %}
     </header>
     <div class="container row clearfix">
-        {% if user.is_authenticated %}
-            <a class="to-admin" href="/admin/" target="_blank"></a>
-        {% endif %}
         {% block aside %}{% endblock aside %}
 
         {% block content %}{% endblock content %}

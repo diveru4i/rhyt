@@ -60,11 +60,11 @@ class GalleryAdmin(OpenMultiButtonMixin, SortableModelAdmin):
 
 class PageAdmin(SortableModelAdmin):
     prepopulated_fields = {'slug': ['name']}
-    list_display = ['__unicode__', 'slug']
+    list_display = ['__unicode__', 'slug', 'get_children']
     form = PageAdminForm
     fieldsets = [
         (None, {
-            'fields': ['show_in_menu', ('name', 'slug'), 'banner', 'text', 'redirect_url', 'is_feedback'],
+            'fields': ['show_in_menu', ('name', 'slug'), 'banner', 'text', 'redirect_url', 'is_feedback', 'parent'],
             'classes': ['suit-tab', 'suit-tab-core']
         }),
         (None, {
@@ -76,6 +76,11 @@ class PageAdmin(SortableModelAdmin):
         ('core', u'Название'),
         ('seo', u'Seo'),
     ]
+
+    def get_children(self, obj):
+        return u'<br/>'.join([child.name for child in obj.children.all()])
+    get_children.allow_tags = True
+    get_children.short_description = u'Дети'
 
 
 admin.site.register(Gallery, GalleryAdmin)
