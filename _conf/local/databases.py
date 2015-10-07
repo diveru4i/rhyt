@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from core import *
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {

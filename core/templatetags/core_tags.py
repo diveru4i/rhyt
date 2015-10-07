@@ -15,4 +15,4 @@ register = template.Library()
 
 @register.assignment_tag
 def get_menu_items():
-    return Page.objects.all()
+    return Page.objects.filter(show_in_menu=True)

@@ -64,7 +64,7 @@ class PageAdmin(SortableModelAdmin):
     form = PageAdminForm
     fieldsets = [
         (None, {
-            'fields': [('name', 'slug'), 'banner', 'text', 'redirect_url', 'is_feedback'],
+            'fields': ['show_in_menu', ('name', 'slug'), 'banner', 'text', 'redirect_url', 'is_feedback'],
             'classes': ['suit-tab', 'suit-tab-core']
         }),
         (None, {

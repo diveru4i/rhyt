@@ -65,6 +65,7 @@ class Page(OrderedModel):
     description = models.TextField(u'Описание', blank=True, null=True)
     keywords = models.TextField(u'Ключевики', blank=True, null=True, help_text=u'через запятую, без пробелов')
     is_feedback = models.BooleanField(u'Форма отзывов', default=False)
+    show_in_menu = models.BooleanField(u'Показывать в меню', default=True)
 
     def get_absolute_url(self):
         return self.redirect_url or reverse('page', args=[self.slug])
