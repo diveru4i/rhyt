@@ -1,0 +1,5 @@
+{% load i18n %}
+<a class="{{ classes }}" title="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ url }}" onclick="window.open(this.href, '{% trans "Опубликовать ссылку в Facebook" %}', 'width=640,height=436,toolbar=0,status=0'); return false" target="_blank">{% if show_link_text %}Facebook{% endif %}</a>
+{% if counter %}
+    <div class="bubble">{{ counter }}</div>
+{% endif %}

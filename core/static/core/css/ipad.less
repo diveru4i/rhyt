@@ -1,0 +1,174 @@
+@red: #e94b54;
+@black: #585858;
+@grey: #7f7c7c;
+
+@media (max-width: 768px) {
+    header {
+        width: 100%;
+        margin: 10px 0 24px 10px;
+        .header__top {
+            .logo {
+                width: 242px;
+                height: 54px;
+            }
+            .social {
+                display: none;
+            }
+        }
+        .header__menu {
+            display: none;
+        }
+    }
+
+    main {
+        max-width: 100%;
+        margin: 0 24px;
+    }
+
+    .circle_list {
+        max-width: 610px;
+        padding: 0;
+        margin: 0 auto;
+        span {
+            font: bold 25px/30px Helvetica, Arial, Tahoma, sans-serif;
+        }
+        .overlay {
+            opacity: 1 !important;
+        }
+    }
+
+    .image {
+        max-width: 100%;
+    }
+
+    .mobile__menu {
+        float: right;
+        display: block;
+
+        #menuToggle {
+            display: block;
+            position: relative;
+            top: 10px;
+            left: -34px;
+            z-index: 1;
+            -webkit-user-select: none;
+            user-select: none;
+            // hidden checkbox
+            input {
+                display: block;
+                width: 40px;
+                height: 32px;
+                position: absolute;
+                top: -7px;
+                left: -5px;
+                cursor: pointer;
+                opacity: 0; /* hide this */
+                z-index: 2; /* and place it over the hamburger */
+                -webkit-touch-callout: none;
+
+                & ~ .social__mobile {
+                    display: block;
+                    position: fixed;
+                    top: 10px;
+                    right: 248px;
+                    transform: translate(500px, 0);
+                    transform-origin: 0% 0%;
+                    transition: transform 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+                    zoom: 0.7;
+                }
+                &:checked ~ .social__mobile {
+                    transform: translate(0, 0);
+                }
+
+                // Transform all the slices of hamburger into a crossmark
+                &:checked ~ span {
+                    opacity: 1;
+                    transform: rotate(45deg) translate(-2px, -1px);
+                    background: #232323;
+                }
+                // But let's hide the middle one.
+                &:checked ~ span:nth-last-child(4) {
+                    opacity: 0;
+                    transform: rotate(0deg) scale(0.2, 0.2);
+                }
+                // The last one should go the other direction
+                &:checked ~ span:nth-last-child(3) {
+                    transform: rotate(-45deg) translate(0, -1px);
+                }
+                // slide it in from the right
+                &:checked ~ ul {
+                    transform: translate(-250px, 0);
+                }
+            }
+            // hamburger
+            span {
+                display: block;
+                width: 33px;
+                height: 4px;
+                margin-bottom: 5px;
+                position: relative;
+
+                background: #cdcdcd;
+                border-radius: 3px;
+
+                z-index: 1;
+
+                transform-origin: 4px 0px;
+
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                                        background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                                        opacity 0.55s ease;
+                &:first-child {
+                    transform-origin: 0% 0%;
+                }
+                &:last-child(2) {
+                    transform-origin: 0% 100%;
+                }
+            }
+        }
+
+        #mobile__menu__list {
+            height: 100%;
+            position: fixed;
+            width: 300px;
+            margin: -100px 0 0 -50px;
+            padding: 60px;
+            padding-top: 125px;
+            overflow: scroll;
+
+            background: rgba(237, 237, 237, 0.9);
+            list-style-type: none;
+            -webkit-font-smoothing: antialiased;
+            /* to stop flickering of text in safari */
+
+            transform-origin: 0% 0%;
+            transform: translate(100%, 0);
+            // transform: translate(-250px, 0);
+
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+            li {
+                padding: 10px 0;
+                font-size: 22px;
+            }
+
+            a {
+                text-decoration: none;
+                color: @black;
+                transition: color 0.5s ease;
+                line-height: 26px;
+                &:hover {
+                    color: @red;
+                }
+                &.is-active {
+                    color: @red;
+                }
+            }
+
+            .mobile__submenu {
+                list-style-type: none;
+            }
+        }
+    }
+
+}

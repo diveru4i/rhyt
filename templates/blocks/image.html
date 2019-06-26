@@ -1,0 +1,7 @@
+{% load wagtailimages_tags %}
+
+{% if img %}
+    {% image img sizes.small as banner %}
+    {% image img sizes.big as banner2x %}
+    <img {% if classes %}class="{{ classes }}"{% endif %} src="{{ banner.url }}" srcset="{{ banner2x.url }} 2x" width="{{ banner.width }}" height="{{ banner.height }}" alt="{{ alt|default:img.title }}" {{ extra }}>
+{% endif %}

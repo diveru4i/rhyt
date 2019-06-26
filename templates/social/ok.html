@@ -1,0 +1,5 @@
+{% load i18n %}
+<a class="{{ classes }}" itemprop="url" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl={{ url }}" title="odnoklassniki" onclick="window.open(this.href, '{% trans "Опубликовать ссылку в Одноклассниках" %}', 'width=800,height=300'); return false" target="_blank">{% if show_link_text %}{% trans "Одноклассники" %}{% endif %}</a>
+{% if counter %}
+    <div class="bubble">{{ counter }}</div>
+{% endif %}

@@ -1,0 +1,53 @@
+# Folders
+.idea
+.DS_Store
+.project
+.pydevproject
+.settings
+log/*
+env/*
+run/*
+tmp/*
+
+# markup
+markup/static
+markup/node_modules
+
+# Patterns
+*.map
+*.swp
+*.csv
+*.sql
+*.pyc
+*.log
+*.svn
+*.pid
+*.sublime-project
+*.sketch
+*.psd
+*.mp4
+*.webm
+*.ogv
+
+# Archives
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+*.cab
+*.iso
+*.tar
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+*.msi
+*.msm
+*.msp

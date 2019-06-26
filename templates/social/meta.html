@@ -1,0 +1,71 @@
+{% load staticfiles %}
+{% load wagtailimages_tags %}
+{% load core_tags %}
+{% load social_tags %}
+
+{% if self.get_banner %}
+    {% image self.get_banner fill-1200x630 as banner %}
+{% elif config.banner %}
+    {% image config.banner fill-1200x630 as banner %}
+{% endif %}
+
+{% page_description self default=config.description as description %}
+
+<meta name="title" content="{{ html_title }}">
+<meta name="description" content="{{ description|striptags }}">
+<meta name="keywords" content="{{ self.keywords|default:config.keywords }}">
+
+<meta name="application-name" content="{{ config.title }}">
+<meta name="theme-color" content="#393939">
+<meta name="HandheldFriendly" content="True">
+
+<meta name="apple-mobile-web-app-title" content="{{ config.title }}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<meta name="format-detection" content="telephone=no">
+
+<meta name="cmsmagazine" content="809ca7c2a58635cf64fc19287c560762">
+
+<meta name="yandex-tableau-widget" content="logo={% static "core/icons/apple-touch-icon-120x120.png" %}, color=#393939">
+<meta name="msapplication-config" content="{% static "core/browserconfig.xml" %}">
+<meta name="msapplication-TileColor" content="#393939">
+<meta name="msapplication-TileImage" content="{% static "core/icons/mstile-144x144.png" %}">
+<meta name="msapplication-square70x70logo" content="{% static "core/icons/mstile-70x70.png" %}">
+<meta name="msapplication-square150x150logo" content="{% static "core/icons/mstile-150x150.png" %}">
+<meta name="msapplication-wide310x150logo" content="{% static "core/icons/mstile-310x150.png" %}">
+<meta name="msapplication-square310x310logo" content="{% static "core/icons/mstile-310x310.png" %}">
+
+{# facebook #}
+{# <meta property="fb:app_id" content="1702640960008856"> #}
+<meta property="og:type" content="article">
+<meta property="article:author" content="{{ config.fb }}">
+<meta property="article:publisher" content="{{ config.fb }}">
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:locale" content="{% og_locale LANGUAGE_CODE %}">
+<meta property="og:url" content="{% share_url request %}">
+<meta property="og:title" content="{{ html_title }}">
+<meta property="og:description" content="{{ description|striptags }}">
+<meta property="og:image" content="{% get_protocol request %}://{{ request.get_host }}{{ banner.url }}">
+
+{# vk #}
+<link rel="image_src" href="{% get_protocol request %}://{{ request.get_host }}{{ banner.url }}">
+
+<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{% static "core/icons/favicon.ico" %}">
+<link rel="manifest" href="{% static "core/manifest.webmanifest" %}">
+<link rel="icon" sizes="192x192" href="{% static "core/icons/icon-192x192.png" %}">
+<link rel="icon" sizes="256x256" href="{% static "core/icons/icon-256x256.png" %}">
+<link rel="icon" sizes="384x384" href="{% static "core/icons/icon-384x384.png" %}">
+<link rel="icon" sizes="512x512" href="{% static "core/icons/icon-512x512.png" %}">
+<link rel="apple-touch-icon" sizes="80x80" href="{% static "core/icons/apple-touch-icon.png" %}">
+<link rel="apple-touch-icon" sizes="120x120" href="{% static "core/icons/apple-touch-icon-120x120.png" %}">
+<link rel="apple-touch-icon" sizes="152x152" href="{% static "core/icons/apple-touch-icon-152x152.png" %}">
+<link rel="apple-touch-icon" sizes="167x167" href="{% static "core/icons/apple-touch-icon-167x167.png" %}">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static "core/icons/apple-touch-icon-180x180.png" %}">
+<link rel="author" href="{% static "core/humans.txt" %}" type="text/plain">
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://api-maps.yandex.ru/">

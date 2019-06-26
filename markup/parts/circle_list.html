@@ -1,0 +1,14 @@
+{% load core_tags %}
+{% load image_tags %}
+
+<ul class="circle_list">
+    {% for i in 6|arr %}
+        <li>
+            <a href="#{{ i }}" style="background-image: url({% placeholder 560 560 %})">
+                <div class="overlay">
+                    <span>{% lorem 2 w random %}</span>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

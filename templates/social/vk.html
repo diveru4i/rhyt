@@ -1,0 +1,5 @@
+{% load i18n %}
+<a class="{{ classes }}" href="https://vk.com/share.php?url={{ url }}" title="vkontakte" onclick="window.open(this.href, '{% trans "Опубликовать ссылку во Вконтакте" %}', 'width=800,height=300'); return false" target="_blank">{% if show_link_text %}{% trans "Вконтакте" %}{% endif %}</a>
+{% if counter %}
+    <div class="bubble">{{ counter }}</div>
+{% endif %}

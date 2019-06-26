@@ -1,0 +1,3 @@
+{% load i18n %}
+<a class="{{ classes }}" title="facebook" href="https://www.linkedin.com/shareArticle?mini=true&url={{ url }}" onclick="window.open(this.href, '{% trans "Опубликовать ссылку в LinkedIn" %}', 'width=640,height=436,toolbar=0,status=0'); return false" target="_blank">{% if show_link_text %}LinkedIn{% endif %}</a>
+

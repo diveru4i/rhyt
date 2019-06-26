@@ -1,0 +1,3 @@
+{% load i18n %}
+<a class="{{ classes }}" href="" title="twitter" onclick="window.open('https://twitter.com/intent/tweet?text={{ text }}%20{{ url }}', '{% trans "Опубликовать ссылку в Twitter" %}', 'width=640,height=436,toolbar=0,status=0'); return false">{% if show_link_text %}Twitter{% endif %}</a>
+
