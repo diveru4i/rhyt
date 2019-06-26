@@ -1,0 +1,33 @@
+{% load core_tags %}<html lang="ru" class="has-no-js" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, viewport-fit=cover">
+        <title>Заголовок</title>
+        <link rel="stylesheet" href="/static/vendor/normalize.min.css">
+        {% block vendor_css %}
+        {% endblock vendor_css %}
+
+        {% block external_css %}
+        {% endblock external_css %}
+
+        <link rel="stylesheet" href="/static/core/css/core.min.css">
+        {% block page_css %}
+        {% endblock page_css %}
+    </head>
+    <body itemscope itemtype="http://schema.org/WebPage">
+
+        {% include "html/parts/header.html" %}
+
+        {% block content %}
+        {% endblock content %}
+
+        <script src="/static/vendor/jquery.min.js"></script>
+        {% block vendor_js %}
+        {% endblock vendor_js %}
+
+        {% block external_js %}{% endblock external_js %}
+
+        {% block page_js %}
+        {% endblock page_js %}
+    </body>
+</html>

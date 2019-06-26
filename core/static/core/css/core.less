@@ -3,6 +3,20 @@
 @black: #585858;
 @grey: #7f7c7c;
 
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+.reviews, ::after, ::before {
+    box-sizing: border-box;
+}
+
+p {
+    color: @grey;
+    font: normal 18px/20px "Times New Roman", serif;
+    line-height: 24px;
+}
+
 body {
     color: @black;
     font: 14px/16px Helvetica, Arial, Tahoma, sans-serif;
@@ -107,6 +121,7 @@ main {
 
 .circle_list {
     margin-bottom: 30px;
+    text-align: center;
     li {
         list-style: none;
         display: inline-block;
@@ -155,12 +170,6 @@ main {
     }
 }
 
-.editable {
-    color: @grey;
-    font: normal 18px/20px "Times New Roman", serif;
-    line-height: 25px;
-}
-
 .image {
     margin-bottom: 30px;
     width: 1000px;
@@ -197,6 +206,77 @@ main {
     }
 }
 
+/************** blog  **************/
+.blog__list {
+    .blog__item {
+        padding: 30px 0 0 0;
+        &:first-child {
+            padding-top: 0;
+        }
+        time {
+            display: block;
+            text-align: center;
+            text-transform: lowercase;
+        }
+        h2 {
+            text-align: center;
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid black;
+        }
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: @grey;
+            &:hover {
+                color: @red;
+            }
+        }
+        img {
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: box-shadow 0.2s ease;
+            &:hover {
+                box-shadow: 0 0 16px @red;
+            }
+        }
+    }
+}
+
+/************** reviews  **************/
+.reviews__list {
+    list-style: none;
+    .reviews__item {
+        margin-bottom: 30px;
+        div {
+            display: flex;
+            align-items: center;
+        }
+        img {
+            width: 300px;
+            margin-right: 20px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+
+#reviews__write {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.g-recaptcha {
+    display: inline-block;
+}
+.g-recaptcha ~ button {
+    margin: -46px 0 0 12px;
+}
 
 @import "ipad.less";
 @import "mobile.less";

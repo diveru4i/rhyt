@@ -10,6 +10,7 @@ def set_stuff(request):
         root = None
     return {
         'DEBUG': settings.DEBUG,
+        'RECAPTCHA_PUBLIC_KEY': settings.RECAPTCHA_PUBLIC_KEY,
         'config': request.config,
         'root': root,
     }

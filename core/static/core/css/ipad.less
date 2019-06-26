@@ -5,9 +5,12 @@
 @media (max-width: 768px) {
     header {
         width: 100%;
-        margin: 10px 0 24px 10px;
+        margin: 10 0 82px 0;
+        // padding: 0 10px 0 10px;
         .header__top {
             .logo {
+                position: absolute;
+                left: 10px;
                 width: 242px;
                 height: 54px;
             }
@@ -22,7 +25,7 @@
 
     main {
         max-width: 100%;
-        margin: 0 24px;
+        margin: 0 16px;
     }
 
     .circle_list {
@@ -170,5 +173,28 @@
             }
         }
     }
+    .blog__list {
+        .blog__item {
+            h2 {
+                font-size: 14px;
+                margin: 2px 0 14px 0;
+            }
+            time {
+                font-size: 10px;
+            }
+        }
+    }
 
+    .reviews__list {
+        padding-left: 0;
+        .reviews__item {
+            div {
+                display: block;
+            }
+            img {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
 }
