@@ -16,6 +16,7 @@ IMAGE_FORMATS = {
     'square_240': 'fill-240x240',
     'square_120': 'fill-120x120',
     'image': 'width-1000',
+    'review': 'fill-300x200',
 }
 
 

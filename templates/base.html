@@ -1,32 +1,66 @@
-{% load staticfiles %}{% load wagtailuserbar %}{% load core_tags %}{% load social_tags %}<!DOCTYPE html>
+{% load staticfiles %}{% load cache %}{% load wagtailuserbar %}{% load core_tags %}{% load social_tags %}<html lang="ru" class="has-no-js" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 <html lang="{{ LANGUAGE_CODE }}" class="has-no-js" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, viewport-fit=cover">
 
-    {% include "social/meta.html" %}
+        {% cache 3600 page_meta request.build_absolute_uri %}
+            {% page_title self root config as html_title %}
+            <title>{% block title %}{{ html_title }}{% endblock title %}</title>
 
-    {% page_title self root config as html_title %}
-    <title>{% block title %}{{ html_title }}{% endblock title %}</title>
+            {% include "social/meta.html" %}
+        {% endcache %}
 
-    <link rel="stylesheet" href="{% static "vendor/normalize.min.css" %}">
-    {% block vendor_css %}{% endblock vendor_css %}
+        {% if not DEBUG %}
+            {% cache 3600 verification %}
+                {% if config.verification %}
+                    {{ config.verification|safe }}
+                {% endif %}
+            {% endcache %}
+        {% endif %}
 
-    <link rel="stylesheet" href="{% static "core/css/global.css" %}">
-    <link rel="stylesheet" href="{% static "core/css/main.css" %}">
-    {% block page_css %}{% endblock page_css %}
-    <!-- Разработано в DesignDepot | https://designdepot.ru/ -->
-</head>
-<body>
-    {% wagtailuserbar %}
+        <link rel="stylesheet" href="/static/vendor/normalize.min.css">
+        {% block vendor_css %}
+        {% endblock vendor_css %}
 
-    {% block content %}{% endblock content %}
+        {% block external_css %}
+        {% endblock external_css %}
 
-    {% include "parts/deprecated.html" %}
+        <link rel="stylesheet" href="/static/core/css/core.min.css">
+        {% block page_css %}
+        {% endblock page_css %}
+    </head>
+    <body itemscope itemtype="http://schema.org/WebPage">
+        {% wagtailuserbar %}
 
-    {% block vendor_js %}{% endblock vendor_js %}
-    {% block external_js %}{% endblock external_js %}
-    {% block page_js %}{% endblock page_js %}
+        {% cache 3600 page_header request.build_absolute_uri %}
+            {% include "parts/header.html" %}
+        {% endcache %}
 
-</body>
+        {% cache 3600 page_content request.build_absolute_uri %}
+            {% block content %}
+            {% endblock content %}
+        {% endcache %}
+
+        {% block popups %}
+        {% endblock popups %}
+
+        {% include "parts/deprecated.html" %}
+
+        <script src="/static/vendor/jquery.min.js"></script>
+        {% block vendor_js %}
+        {% endblock vendor_js %}
+
+        {% block external_js %}{% endblock external_js %}
+
+        {% block page_js %}
+        {% endblock page_js %}
+
+        {% if not DEBUG %}
+            {% cache 3600 anal %}
+                {% if config.anal %}
+                    {{ config.anal|safe }}
+                {% endif %}
+            {% endcache %}
+        {% endif %}
+    </body>
 </html>

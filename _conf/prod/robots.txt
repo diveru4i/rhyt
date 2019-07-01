@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: /documents/
+
+Sitemap: https://opirogova.ru/sitemap.xml
+
+# bad robots:
+User-agent: AhrefsBot
+Disallow: /

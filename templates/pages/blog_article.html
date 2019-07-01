@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load core_tags %}
+
+{% block content %}
+<main class="blog__article">
+    <time datetime="{{ self.date|date:'Y-m-d' }}">----------{{ self.date|date:'F Y' }}----------</time>
+    <h1>{{ self.title|ft }}</h1>
+
+    {% if self.get_banner %}
+        {% include "blocks/simple_image.html" with image=self.get_banner %}
+    {% endif %}
+
+    {% for item in self.content %}
+        {% include_block item %}
+    {% endfor %}
+</main>
+{% endblock content %}

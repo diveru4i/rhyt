@@ -3,6 +3,16 @@
 @grey: #7f7c7c;
 
 @media (max-width: 768px) {
+
+    h3 {
+        margin-bottom: 12px;
+        margin-left: 0;
+    }
+
+    main ul:not(.circle_list), p {
+        margin: 0 0 16px 0;
+    }
+
     header {
         width: 100%;
         margin: 10 0 82px 0;
@@ -31,7 +41,7 @@
     .circle_list {
         max-width: 610px;
         padding: 0;
-        margin: 0 auto;
+        margin: 0 auto 30px auto;
         span {
             font: bold 25px/30px Helvetica, Arial, Tahoma, sans-serif;
         }
@@ -173,14 +183,15 @@
             }
         }
     }
+
+    time {
+        font-size: 10px;
+    }
     .blog__list {
         .blog__item {
             h2 {
                 font-size: 14px;
                 margin: 2px 0 14px 0;
-            }
-            time {
-                font-size: 10px;
             }
         }
     }
@@ -189,10 +200,11 @@
         padding-left: 0;
         .reviews__item {
             div {
-                display: block;
+                // display: block;
             }
             img {
-                width: 100%;
+                // min-width: auto;
+                // width: 100%;
                 margin-bottom: 10px;
             }
         }

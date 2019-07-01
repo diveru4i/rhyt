@@ -126,7 +126,7 @@ INSTALLED_APPS = [
     'compressor',
     'modelcluster',
     'gunicorn',
-    # 'captcha',
+    'captcha',
     'imperavi',
     'easy_thumbnails',
     'el_pagination',

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load core_tags %}
+{% load image_tags %}
+
+{% block content %}
+<main class="reviews">
+    <ul class="reviews__list">
+        {% for item in reviews %}
+            <li class="reviews__item">
+                <h3>{{ item.name|ft }}</h3>
+                <div>
+                    {% image2x item.image 'review' %}
+                    <p>{{ item.message|ft }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Button trigger modal -->
+    <button type="button" id="reviews__write" data-toggle="modal" data-target="#reviewsModal" class="btn-success" title="Оставить отзыв">
+         <i class="material-icons medium">thumb_up</i>
+    </button>
+</main>
+{% endblock content %}
+
+
+{% block popups %}
+<!-- Modal -->
+<div class="reviews modal fade" id="reviewsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Оставьте отзыв =)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="response">
+                    <h5></h5>
+                    <p></p>
+                </div>
+                <form method="POST" action="{{ self.url }}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input required type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input required name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea required class="form-control" id="message" name="message"></textarea>
+                    </div>
+
+                    <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_PUBLIC_KEY }}"></div>
+                    <button type="submit" class="btn btn-primary btn-lg">Отправить!</button>
+                </form>
+            </div>
+            {% comment %}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            {% endcomment %}
+        </div>
+    </div>
+</div>
+{% endblock popups %}
+
+
+{% block vendor_js %}
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+{% endblock vendor_js %}
+
+{% block vendor_css %}
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+{% endblock vendor_css %}
+
+{% block external_css %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock external_css %}
+
+{% block page_js %}
+    <script src="/static/core/js/reviews.js"></script>
+{% endblock page_js %}
+
+{% block external_js %}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock external_js %}
+

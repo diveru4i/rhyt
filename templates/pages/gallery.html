@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+    <main>
+        {% if self.annotation %}
+            <div class="editable">{{ self.annotation|safe }}</div>
+        {% endif %}
+
+        {% for image in self.gallery.images %}
+            {# {% image image.value width-1000 as image %} #}
+            <img src="{{ image.value.file.url }}" class="image">
+        {% endfor %}
+    </main>
+{% endblock content %}

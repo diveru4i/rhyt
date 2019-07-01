@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load core_tags %}
+
+
+{% block content %}
+    <main>
+        <h1>{{ self.title|ft }}</h1>
+        {% for item in self.content %}
+            {% include_block item %}
+        {% endfor %}
+    </main>
+{% endblock content %}

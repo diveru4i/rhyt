@@ -1,0 +1,16 @@
+{% load core_tags %}
+{% load image_tags %}
+{% load wagtailimages_tags %}
+
+<ul class="circle_list">
+    {% for item in gallery_list %}
+        <li>
+            {% image item.get_banner fill-560x560 as cover %}
+            <a href="{{ item.url }}" style="background-image: url({{ cover.file.url }})">
+                <div class="overlay">
+                    <span>{{ item.title|ft }}</span>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

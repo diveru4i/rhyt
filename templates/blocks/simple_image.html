@@ -1,0 +1,7 @@
+{% load wagtailimages_tags %}
+{% load image_tags %}
+
+{% image image width-1000 as image %}
+<div class="image">
+    <img src="{{ image.file.url }}">
+</div>

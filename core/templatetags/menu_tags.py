@@ -30,13 +30,16 @@ def get_section(page, depth):
 
 
 @register.simple_tag
-def get_menu_items(page, root, depth=2):
+def get_menu_items(page, root, depth=2, with_children=True):
     if not page or getattr(page, 'is_fake', False):
         page = root
     section = get_section(page, depth)
     if not section:
         return dict()
     items = section.get_children().live().in_menu().specific()
+    if with_children:
+        for item in items:
+            item.children = get_menu_items(item, page, depth=3, with_children=False)
     return items or list()
 
 

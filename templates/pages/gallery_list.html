@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    {% include "blocks/circle_list.html" with gallery_list=self.get_children.live.specific %}
+</main>
+{% endblock content %}

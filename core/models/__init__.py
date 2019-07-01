@@ -14,20 +14,22 @@ from .extra import *
 
 @register_setting
 class SiteConfiguration(BaseSetting):
-    root_page = models.ForeignKey(Page, models.SET_NULL, verbose_name=u'Корневая страница', blank=True, null=True, related_name='+')
     title = models.CharField(u'Заголовок по-умолчанию', max_length=100, default=u'', blank=True)
     ## SEO
     description = models.TextField(u'Описание по-умолчанию', blank=True, null=True)
     keywords = models.TextField(u'Ключевики по-умолчанию', blank=True, null=True, help_text=u'через запятую, без пробелов')
     banner = models.ForeignKey(Image, models.SET_NULL, blank=True, null=True, related_name='+', verbose_name='Баннер по умолчанию')
     ##
-    footer = RedactorField(u'Футер', blank=True, null=True)
+    fb = models.URLField(u'Facebook', blank=True, null=True, default='https://web.facebook.com/groups/opirogova/')
+    vk = models.URLField(u'VK', blank=True, null=True, default='http://vk.com/o_pirogova')
+    ig = models.URLField(u'Instagram', blank=True, null=True, default='https://instagram.com/olesyapirogova/')
+    disfo = models.URLField(u'Disfo', blank=True, null=True, default='http://disfo.ru/profile/Axlnick/')
     ##
-    search_page = models.ForeignKey(Page, models.SET_NULL, verbose_name=u'Страницы поиска', blank=True, null=True, related_name='+')
+    ##
+    verification = models.TextField(u'Код верификации', blank=True, null=True)
+    anal = models.TextField(u'Код аналитики', blank=True, null=True)
 
     panels = [
-        PageChooserPanel('root_page'),
-        PageChooserPanel('search_page'),
         FieldPanel('title', classname='full title'),
         MultiFieldPanel([
             ImageChooserPanel('banner'),
@@ -36,7 +38,20 @@ class SiteConfiguration(BaseSetting):
                 FieldPanel('keywords', classname='col6'),
             ])
         ], heading=u'SEO'),
-        FieldPanel('footer'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('fb', classname='col6'),
+                FieldPanel('vk', classname='col6'),
+            ]),
+            FieldRowPanel([
+                FieldPanel('ig', classname='col6'),
+                FieldPanel('disfo', classname='col6'),
+            ]),
+        ], heading=u'Соцсети'),
+        MultiFieldPanel([
+            FieldPanel('verification'),
+            FieldPanel('anal'),
+        ], heading=u'Аналитика', classname='collapsible collapsed'),
     ]
 
     class Meta:

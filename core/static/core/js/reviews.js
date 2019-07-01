@@ -4,7 +4,9 @@
     $(document).ready(function() {
 
         var $modal = $('#reviewsModal');
-        $modal.find('form').on('submit', function(e) {
+        var $response = $modal.find('.response');
+        var $form = $modal.find('form');
+        $form.on('submit', function(e) {
             e.preventDefault();
             var $form = $(this);
             $.ajax({
@@ -12,9 +14,15 @@
                 url: $form.attr('action'),
                 data: $form.serialize()
             }).done(function(response){
-                $modal.find('h5').text(response.title);
-                $form.replaceWith("<p>" + response.message + "</p>");
+                $response.find('h5').text(response.title);
+                $response.find('p').text(response.message);
+                $response.show();
+                $form.hide();
             });
+        });
+        $modal.on('hide.bs.modal', function(){
+            $response.hide();
+            $form.show();
         });
 
     })

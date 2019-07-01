@@ -2,7 +2,7 @@ Django==2.0.13
 wagtail==2.5.1
 mysqlclient
 python-memcached
-# django-recaptcha==1.3.1
+django-recaptcha==1.3.1
 easy_thumbnails
 # elasticsearch==5.5.1
 # pymorphy2[fast]
@@ -16,3 +16,4 @@ requests
 hashids
 isodate
 beautifulsoup4==4.6.0
+django-ipware

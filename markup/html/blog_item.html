@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load core_tags %}
+
+{% block content %}
+<main class="blog__article">
+    <time datetime="2011-01-12">----------January 12th, 2011----------</time>
+    <h1>{% lorem 4 w random %}</h1>
+    {% include "html/parts/image.html" %}
+    {% include "html/parts/editable.html" %}
+    {% include "html/parts/image.html" %}
+    {% include "html/parts/image.html" %}
+</main>
+{% endblock content %}

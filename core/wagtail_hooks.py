@@ -27,11 +27,25 @@ def editor_css():
     return includes
 
 
-# class NewsCatAdmin(ModelAdmin):
-#     model = NewsCat
-#     menu_icon = 'pick'
-#     search_fields = ['title']
-#     menu_order = 600
+class GalleryAdmin(ModelAdmin):
+    model = Gallery
+    menu_icon = 'pick'
+    list_display = ['title', 'admin_banner']
+    search_fields = ['title']
+    menu_order = 600
+
+    def admin_banner(self, obj):
+        return '<img src="%s"/>' % obj.banner().get_rendition('max-165x165').file.url
+    admin_banner.allow_tags = True
+    admin_banner.short_description = u'Баннер'
 
 
-# modeladmin_register(NewsCatAdmin)
+class ReviewAdmin(ModelAdmin):
+    model = Review
+    menu_icon = 'openquote'
+    list_display = ['name', 'message', 'created', 'ip']
+    menu_order = 700
+
+
+modeladmin_register(GalleryAdmin)
+modeladmin_register(ReviewAdmin)

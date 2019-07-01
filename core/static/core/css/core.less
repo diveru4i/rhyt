@@ -2,6 +2,7 @@
 @red: #e94b54;
 @black: #585858;
 @grey: #7f7c7c;
+@header-grey: #545454;
 
 *, ::after, ::before {
     box-sizing: inherit;
@@ -13,8 +14,48 @@
 
 p {
     color: @grey;
-    font: normal 18px/20px "Times New Roman", serif;
+    font: italic 16px/20px "Times New Roman", serif;
     line-height: 24px;
+    margin-left: 100px;
+}
+
+h1, h2, h3 {
+    font-style: italic;
+    color: @header-grey;
+}
+
+h1 {
+    font: italic 30px/26px "Athelas", serif;
+    // font-weight: 600;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font: italic 26px/26px "Athelas", serif;
+}
+
+h3 {
+    font: italic 24px/26px "Athelas", serif;
+    margin-left: 24px;
+}
+
+a {
+    // text-decoration: none;
+    color: @black;
+    transition: color .5s ease;
+    &:hover {
+        color: @red;
+    }
+}
+
+.editable {
+    margin-bottom: 30px;
+    ul {
+        color: @grey;
+        font: italic 16px/20px "Times New Roman", serif;
+        line-height: 24px;
+        margin-left: 100px;
+    }
 }
 
 body {
@@ -104,6 +145,9 @@ header {
             border-left: 4px solid @red;
             background-color: white;
             display: none;
+            padding-top: 10px;
+            background: darken(rgba(255, 255, 255, 0.9), 2%);
+            box-shadow: 0 10px 10px rgba(0,0,0,.5);
             li {
                 padding: 5px 10px 5px 5px;
                 &.is-active {
@@ -172,7 +216,11 @@ main {
 
 .image {
     margin-bottom: 30px;
-    width: 1000px;
+    max-width: 1000px;
+    text-align: center;
+    img {
+        max-width: 100%;
+    }
 }
 
 .youtube {
@@ -207,16 +255,17 @@ main {
 }
 
 /************** blog  **************/
+time {
+    display: block;
+    text-align: center;
+    text-transform: lowercase;
+}
+
 .blog__list {
     .blog__item {
         padding: 30px 0 0 0;
         &:first-child {
             padding-top: 0;
-        }
-        time {
-            display: block;
-            text-align: center;
-            text-transform: lowercase;
         }
         h2 {
             text-align: center;
@@ -242,6 +291,12 @@ main {
     }
 }
 
+.blog__article {
+    h1 {
+        text-align: center;
+    }
+}
+
 /************** reviews  **************/
 .reviews__list {
     list-style: none;
@@ -252,7 +307,7 @@ main {
             align-items: center;
         }
         img {
-            width: 300px;
+            min-width: 300px;
             margin-right: 20px;
         }
         p {
@@ -276,6 +331,12 @@ main {
 }
 .g-recaptcha ~ button {
     margin: -46px 0 0 12px;
+}
+
+.modal-body {
+    .response {
+        display: none;
+    }
 }
 
 @import "ipad.less";

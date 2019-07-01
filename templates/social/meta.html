@@ -16,7 +16,7 @@
 <meta name="keywords" content="{{ self.keywords|default:config.keywords }}">
 
 <meta name="application-name" content="{{ config.title }}">
-<meta name="theme-color" content="#393939">
+<meta name="theme-color" content="#e94b54">
 <meta name="HandheldFriendly" content="True">
 
 <meta name="apple-mobile-web-app-title" content="{{ config.title }}">
@@ -30,14 +30,7 @@
 
 <meta name="cmsmagazine" content="809ca7c2a58635cf64fc19287c560762">
 
-<meta name="yandex-tableau-widget" content="logo={% static "core/icons/apple-touch-icon-120x120.png" %}, color=#393939">
-<meta name="msapplication-config" content="{% static "core/browserconfig.xml" %}">
-<meta name="msapplication-TileColor" content="#393939">
-<meta name="msapplication-TileImage" content="{% static "core/icons/mstile-144x144.png" %}">
-<meta name="msapplication-square70x70logo" content="{% static "core/icons/mstile-70x70.png" %}">
-<meta name="msapplication-square150x150logo" content="{% static "core/icons/mstile-150x150.png" %}">
-<meta name="msapplication-wide310x150logo" content="{% static "core/icons/mstile-310x150.png" %}">
-<meta name="msapplication-square310x310logo" content="{% static "core/icons/mstile-310x310.png" %}">
+{% include "parts/favicomatic.html" %}
 
 {# facebook #}
 {# <meta property="fb:app_id" content="1702640960008856"> #}
@@ -53,19 +46,6 @@
 
 {# vk #}
 <link rel="image_src" href="{% get_protocol request %}://{{ request.get_host }}{{ banner.url }}">
-
-<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{% static "core/icons/favicon.ico" %}">
-<link rel="manifest" href="{% static "core/manifest.webmanifest" %}">
-<link rel="icon" sizes="192x192" href="{% static "core/icons/icon-192x192.png" %}">
-<link rel="icon" sizes="256x256" href="{% static "core/icons/icon-256x256.png" %}">
-<link rel="icon" sizes="384x384" href="{% static "core/icons/icon-384x384.png" %}">
-<link rel="icon" sizes="512x512" href="{% static "core/icons/icon-512x512.png" %}">
-<link rel="apple-touch-icon" sizes="80x80" href="{% static "core/icons/apple-touch-icon.png" %}">
-<link rel="apple-touch-icon" sizes="120x120" href="{% static "core/icons/apple-touch-icon-120x120.png" %}">
-<link rel="apple-touch-icon" sizes="152x152" href="{% static "core/icons/apple-touch-icon-152x152.png" %}">
-<link rel="apple-touch-icon" sizes="167x167" href="{% static "core/icons/apple-touch-icon-167x167.png" %}">
-<link rel="apple-touch-icon" sizes="180x180" href="{% static "core/icons/apple-touch-icon-180x180.png" %}">
-<link rel="author" href="{% static "core/humans.txt" %}" type="text/plain">
 
 <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
 <link rel="dns-prefetch" href="https://api-maps.yandex.ru/">

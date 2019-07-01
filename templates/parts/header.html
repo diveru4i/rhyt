@@ -1,0 +1,80 @@
+{% load core_tags %}
+{% load menu_tags %}
+
+{% get_menu_items self root as menu_items %}
+
+<header>
+    <div class="header__top">
+        <a class="logo" href="{{ root.url }}"></a>
+        <div class="social">
+            {% if config.fb %}
+                <a target="_blank" class="social__icon social__fb" href="{{ config.fb }}"></a>
+            {% endif %}
+            {% if config.vk %}
+                <a target="_blank" class="social__icon social__vk" href="{{ config.vk }}"></a>
+            {% endif %}
+            {% if config.ig %}
+                <a target="_blank" class="social__icon social__instagram" href="{{ config.ig }}"></a>
+            {% endif %}
+            {% if config.disfo %}
+                <a target="_blank" class="social__icon social__disfo" href="{{ config.disfo }}"></a>
+            {% endif %}
+        </div>
+        <nav role="navigation" class="mobile__menu">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <ul id="mobile__menu__list">
+                    {% for item in menu_items %}
+                        <li>
+                            <a href="{{ item.url }}" class="{% is_active self item %}">{{ item.get_menu_title }}</a>
+                            {% if item.children.exists %}
+                                <ul class="mobile__submenu">
+                                    {% for child in item.children  %}
+                                        <li><a href="{{ child.url }}" class="{% is_active self child %}"}>{{ child.get_menu_title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="social social__mobile">
+                    {% if config.fb %}
+                        <a target="_blank" class="social__icon social__fb" href="{{ config.fb }}"></a>
+                    {% endif %}
+                    {% if config.vk %}
+                        <a target="_blank" class="social__icon social__vk" href="{{ config.vk }}"></a>
+                    {% endif %}
+                    {% if config.ig %}
+                        <a target="_blank" class="social__icon social__instagram" href="{{ config.ig }}"></a>
+                    {% endif %}
+                    {% if config.disfo %}
+                        <a target="_blank" class="social__icon social__disfo" href="{{ config.disfo }}"></a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <nav class="header__menu">
+        <ul class="menu__list">
+            {% for item in menu_items %}
+                <li class="menu__item {% is_active self item %}">
+                    <a href="{{ item.url }}">{{ item.get_menu_title }}</a>
+                    {% if item.children.exists %}
+                        <ul class="submenu__list">
+                            {% for child in item.children  %}
+                                <li class="submenu__item {% is_active self child %}">
+                                    <a href="{{ child.url }}">{{ child.get_menu_title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

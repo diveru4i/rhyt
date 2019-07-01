@@ -3,6 +3,11 @@
 @grey: #7f7c7c;
 
 @media (max-width: 480px) {
+    p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
     header {
         .header__top {
             .logo {
@@ -44,5 +49,15 @@
 
     .g-recaptcha ~ button {
         margin: 10px 0 0 0;
+    }
+
+    .reviews__list {
+        padding-left: 0;
+        text-align: center;
+        .reviews__item {
+            div {
+                display: block;
+            }
+        }
     }
 }
